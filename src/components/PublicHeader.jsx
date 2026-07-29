@@ -100,19 +100,13 @@ const PublicHeader = () => {
               <img src={logoZf} alt="Ziv Foundation Logo" className="portal-logo-img" />
               <div className="portal-title-group">
                 <span className="portal-name">Ziv Foundation</span>
-                <span className="portal-subname">For the people, To the people</span>
               </div>
             </Link>
           </div>
 
           {/* Top Right Utilities */}
           <div className="top-utilities-group">
-            {/* Helpline Badge */}
-            <div className="helpline-badge desktop-helpline">
-              📞 {t.helpline}
-            </div>
-
-            {/* Language Switcher Pill (EN & AS) */}
+            {/* Language Switcher Pill (English & অসমীয়া) */}
             <div className="lang-switcher-pill" role="radiogroup" aria-label="Select Language">
               <button
                 type="button"
@@ -120,7 +114,7 @@ const PublicHeader = () => {
                 onClick={() => setLang('EN')}
                 title="English"
               >
-                EN
+                English
               </button>
               <button
                 type="button"
@@ -128,7 +122,7 @@ const PublicHeader = () => {
                 onClick={() => setLang('AS')}
                 title="অসমীয়া (Assamese)"
               >
-                AS
+                অসমীয়া
               </button>
             </div>
 
@@ -317,12 +311,9 @@ const PublicHeader = () => {
       <div className={`mobile-nav-drawer ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-drawer-content">
           <div className="mobile-utility-row">
-            <div className="helpline-badge mobile-helpline">
-              📞 {t.helpline}
-            </div>
             <div className="lang-switcher-pill">
-              <button type="button" className={`lang-btn ${lang === 'EN' ? 'active' : ''}`} onClick={() => setLang('EN')}>EN</button>
-              <button type="button" className={`lang-btn ${lang === 'AS' ? 'active' : ''}`} onClick={() => setLang('AS')}>AS</button>
+              <button type="button" className={`lang-btn ${lang === 'EN' ? 'active' : ''}`} onClick={() => setLang('EN')}>English</button>
+              <button type="button" className={`lang-btn ${lang === 'AS' ? 'active' : ''}`} onClick={() => setLang('AS')}>অসমীয়া</button>
             </div>
           </div>
 

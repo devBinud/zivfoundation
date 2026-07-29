@@ -11,9 +11,19 @@
 /* Global Layout Structure */
 .public-layout {
   font-family: 'Source Sans 3', -apple-system, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .public-main-content {
   flex-grow: 1;
-  padding-top: 0;
+  padding-top: 134px;
+  overflow-x: hidden;
+}
+
+@media (max-width: 992px) {
+  .public-main-content {
+    padding-top: 90px;
+  }
 }

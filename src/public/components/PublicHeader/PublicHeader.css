@@ -3,13 +3,19 @@
    ============================================================ */
 
 .rakt-header-wrapper {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   z-index: 1000;
   font-family: 'Source Sans 3', -apple-system, sans-serif;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 /* 1. Top Emblem Bar */
@@ -146,29 +152,39 @@ html.dark-theme .portal-name {
 
 .lang-switcher-pill {
   display: inline-flex;
-  background: #e2e8f0;
+  background: #f1f5f9;
   border-radius: 20px;
-  padding: 2px;
+  padding: 3px;
   border: 1px solid #cbd5e1;
+}
+
+html.dark-theme .lang-switcher-pill {
+  background: #1e293b;
+  border-color: #334155;
 }
 
 .lang-btn {
   border: none;
   background: transparent;
-  padding: 0.2rem 0.65rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 16px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #475569;
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: 'Source Sans 3', sans-serif;
+  line-height: 1.2;
+}
+
+html.dark-theme .lang-btn {
+  color: #94a3b8;
 }
 
 .lang-btn.active {
   background: #800000;
   color: #ffffff;
-  box-shadow: 0 1px 4px rgba(128, 0, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(128, 0, 0, 0.35);
 }
 
 .rakt-mobile-toggle-btn {
