@@ -1,0 +1,40 @@
+.org-type-master-view {
+  width: 100%;
+}
+
+.btn-action-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-edit-outline {
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #3b82f6;
+}
+
+html.light-theme .btn-edit-outline {
+  color: #2563eb;
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.btn-edit-outline:hover {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.btn-delete-outline {
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--danger);
+}
+
+.btn-delete-outline:hover:not(:disabled) {
+  background: var(--danger);
+  color: white;
+}

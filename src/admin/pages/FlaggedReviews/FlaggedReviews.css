@@ -1,0 +1,126 @@
+.flagged-reviews-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.flagged-review-card {
+  padding: 1.5rem 2rem;
+  text-align: left;
+}
+
+.flagged-review-date-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.review-reason-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(120, 120, 120, 0.08);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.flagged-review-participants {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(120, 120, 120, 0.05);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
+.participant {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.participant-role {
+  color: var(--text-secondary);
+}
+
+.participant-name {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.participant-separator {
+  color: var(--text-muted);
+}
+
+.btn-resolve {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  background: var(--success-light);
+  color: var(--success) !important;
+  font-family: var(--font-sans);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-resolve:hover {
+  background: var(--success);
+  color: white !important;
+  border-color: var(--success);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
+}
+
+.btn-resolve:active {
+  transform: scale(0.97);
+}
+
+.flagged-review-comment-bubble {
+  background: rgba(239, 68, 68, 0.04);
+  border: 1px dashed rgba(239, 68, 68, 0.3);
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+}
+
+.comment-bubble-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.comment-quote {
+  font-style: italic;
+  color: var(--text-primary);
+  font-size: 0.825rem;
+}
+
+.flagged-review-id-tag {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.spinner-medium {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

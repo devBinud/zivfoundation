@@ -1,0 +1,31 @@
+.push-campaigns-view {
+  width: 100%;
+}
+
+.partner-actions-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-action-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-delete-outline {
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--danger);
+}
+
+.btn-delete-outline:hover {
+  background: var(--danger);
+  color: white;
+}

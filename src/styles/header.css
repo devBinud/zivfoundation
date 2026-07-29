@@ -1,0 +1,525 @@
+/* ============================================================
+   Header & Navigation Bar Styles
+   ============================================================ */
+
+.rakt-header-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 1. Top Emblem Bar */
+.top-emblem-bar {
+  background: #ffffff;
+  color: #1e293b;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.4rem 0;
+}
+
+html.dark-theme .top-emblem-bar {
+  background: #0f172a;
+  color: #f8fafc;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-emblem-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.emblem-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.emblem-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.national-emblem-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.emblem-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.gov-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+html.dark-theme .gov-title {
+  color: #94a3b8;
+}
+
+.gov-sub {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #800000;
+  letter-spacing: -0.01em;
+}
+
+.emblem-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+html.dark-theme .emblem-divider {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.portal-brand-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.portal-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.portal-title-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.portal-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+html.dark-theme .portal-name {
+  color: #ffffff;
+}
+
+.portal-subname {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #b91c1c;
+}
+
+.top-utilities-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.helpline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  background: #fff1f2;
+  color: #991b1b;
+  border: 1px solid #fecdd3;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.lang-switcher-pill {
+  display: inline-flex;
+  background: #e2e8f0;
+  border-radius: 20px;
+  padding: 2px;
+  border: 1px solid #cbd5e1;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 0.2rem 0.65rem;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+.lang-btn.active {
+  background: #800000;
+  color: #ffffff;
+  box-shadow: 0 1px 4px rgba(128, 0, 0, 0.3);
+}
+
+.rakt-mobile-toggle-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #0f172a;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+html.dark-theme .rakt-mobile-toggle-btn {
+  color: #ffffff;
+}
+
+/* 2. Main Navigation Bar (Maroon Government Style) */
+.main-maroon-navbar {
+  background: #800000;
+  border: none;
+}
+
+.main-navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.desktop-nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+.nav-item-cell {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.maroon-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1rem;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.94rem;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+.maroon-nav-link:hover,
+.maroon-nav-link.active,
+.dropdown-parent.open > .maroon-nav-link {
+  background: rgba(0, 0, 0, 0.32);
+  color: #ffffff;
+}
+
+.highlight-portal-link {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.caret-icon {
+  transition: transform 0.2s ease;
+  margin-left: 2px;
+  opacity: 0.9;
+}
+
+.dropdown-parent.open .caret-icon {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Box */
+.dropdown-menu-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  min-width: 230px;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  z-index: 1001;
+  overflow: hidden;
+}
+
+
+
+.dropdown-menu-box.right-aligned {
+  left: auto;
+  right: 0;
+}
+
+.dropdown-parent.open .dropdown-menu-box,
+.dropdown-parent:hover .dropdown-menu-box {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-menu-item {
+  display: block;
+  padding: 0.65rem 1.25rem;
+  color: #800000;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  border-bottom: none;
+}
+
+.dropdown-menu-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu-item:hover {
+  background: #f1f5f9;
+  color: #800000;
+}
+
+/* 3. Ticker Announcement Bar */
+.announcement-ticker-bar {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 0;
+  border-bottom: 1px solid #e2e8f0;
+  overflow: hidden;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Source Sans 3', sans-serif;
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+html.dark-theme .announcement-ticker-bar {
+  background: #0f172a;
+  color: #f8fafc;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.ticker-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.ticker-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #800000;
+  border: none !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 0 !important;
+  padding: 0 1.25rem;
+  height: 100%;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+html.dark-theme .ticker-label {
+  color: #f87171;
+  border-left-color: rgba(255, 255, 255, 0.15) !important;
+  border-right-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.pulse-indicator {
+  color: #dc2626;
+  animation: pulseGlow 1.2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+.ticker-marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ticker-marquee-content {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  animation: marqueeScroll 25s linear infinite;
+  color: #0f172a;
+}
+
+html.dark-theme .ticker-marquee-content {
+  color: #f8fafc;
+}
+
+.ticker-marquee-wrapper:hover .ticker-marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* 4. Mobile Drawer Menu */
+.mobile-nav-drawer {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .desktop-nav-menu {
+    display: none;
+  }
+
+  .emblem-divider, .gov-title {
+    display: none;
+  }
+
+  .helpline-badge {
+    display: none;
+  }
+
+  .rakt-mobile-toggle-btn {
+    display: block;
+  }
+
+  .mobile-nav-drawer {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    background: #ffffff;
+    opacity: 0;
+    border-bottom: 2px solid #800000;
+  }
+
+  html.dark-theme .mobile-nav-drawer {
+    background: #0f172a;
+    color: #ffffff;
+  }
+
+  .mobile-nav-drawer.open {
+    max-height: 500px;
+    opacity: 1;
+    overflow-y: auto;
+  }
+
+  .mobile-drawer-content {
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+  }
+
+  .mobile-utility-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .mobile-helpline {
+    display: inline-flex !important;
+  }
+
+  .mobile-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: 0.6rem 0;
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  html.dark-theme .mobile-nav-link {
+    color: #ffffff;
+  }
+
+  .mobile-accordion-item {
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .mobile-accordion-trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    background: none;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #0f172a;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  html.dark-theme .mobile-accordion-trigger {
+    color: #ffffff;
+  }
+
+  .mobile-accordion-body {
+    padding: 0.25rem 0 0.75rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobile-accordion-body a {
+    color: #475569;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 400;
+  }
+
+  html.dark-theme .mobile-accordion-body a {
+    color: #cbd5e1;
+  }
+
+  .mobile-portal-login-cta {
+    margin-top: 1rem;
+  }
+}
+
+

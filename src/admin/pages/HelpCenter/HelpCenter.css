@@ -1,0 +1,25 @@
+.help-center-view {
+  width: 100%;
+}
+
+.help-center-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.docs-menu-item:hover {
+  background: rgba(255,255,255,0.03) !important;
+  color: var(--primary) !important;
+}
+
+html.light-theme .docs-menu-item:hover {
+  background: rgba(0,0,0,0.02) !important;
+}
+
+@media (max-width: 900px) {
+  .help-center-grid {
+    grid-template-columns: 1fr;
+  }
+}

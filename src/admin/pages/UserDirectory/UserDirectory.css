@@ -1,0 +1,156 @@
+.controls-card {
+  padding: 1rem 1.5rem;
+}
+
+.filters-group {
+  display: flex;
+  gap: 1rem;
+  flex-grow: 1;
+  max-width: 800px;
+}
+
+.search-input {
+  flex: 1.5;
+}
+
+.filter-select {
+  flex: 1;
+  background-position: right 1rem center;
+}
+
+.user-profile-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.user-name {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-email {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.contact-phone {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 0.1rem;
+}
+
+.role-donor-badge, .role-seeker-badge {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--text-secondary) !important;
+  border: none !important;
+}
+html.light-theme .role-donor-badge, html.light-theme .role-seeker-badge {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: var(--text-secondary) !important;
+}
+
+.badge-active {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border: none !important;
+}
+
+.blood-badge {
+  font-weight: 600;
+  color: var(--text-primary) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+.btn-danger-outline {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--danger);
+}
+.btn-danger-outline:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-success-outline {
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--success);
+}
+.btn-success-outline:hover {
+  background: var(--success);
+  color: white;
+}
+
+.btn-details-outline {
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #818cf8;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.btn-details-outline:hover {
+  background: #6366f1;
+  border-color: #6366f1;
+  color: white;
+}
+html.light-theme .btn-details-outline {
+  background: rgba(99, 102, 241, 0.06);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #4f46e5;
+}
+html.light-theme .btn-details-outline:hover {
+  background: #4f46e5;
+  color: white;
+}
+
+.spinner-medium {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 900px) {
+  .controls-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .filters-group {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}

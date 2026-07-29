@@ -1,0 +1,135 @@
+/* Admin Login Page Styles */
+.login-page {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.login-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, hsla(352, 84%, 42%, 0.05) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.light-login-card {
+  width: 100%;
+  max-width: 440px;
+  z-index: 10;
+  padding: 2.5rem 2rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+
+.login-logo {
+  height: 80px;
+  width: auto;
+  margin: 0 auto 1.25rem auto;
+  display: block;
+  object-fit: contain;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #111827;
+}
+
+.login-header p {
+  font-size: 0.85rem;
+  color: #4b5563;
+  margin-top: 0.25rem;
+}
+
+.light-login-card .form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.light-login-card .form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #1f2937;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  box-shadow: none !important;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.light-login-card .form-control:hover {
+  border-color: #9ca3af;
+  box-shadow: none !important;
+}
+
+.light-login-card .form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: none !important;
+  background: #ffffff;
+}
+
+.password-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-container .form-control {
+  padding-right: 2.75rem;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.password-toggle-btn:focus {
+  color: var(--primary);
+}
+
+.light-login-card .btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.light-login-card .btn-primary:hover {
+  background: var(--primary-hover);
+  box-shadow: none;
+  transform: none;
+}

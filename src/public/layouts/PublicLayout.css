@@ -1,0 +1,13 @@
+.public-layout {
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff !important;
+  background-image: none !important;
+}
+
+.public-main-content {
+  flex-grow: 1;
+  padding-top: 0;
+}

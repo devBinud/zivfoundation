@@ -1,0 +1,211 @@
+.view-cert-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.view-cert-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.cert-preview-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .view-cert-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .header-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Certificate Document Styling */
+.cert-document-frame {
+  background: #fdfbf7;
+  border: 16px double #b8860b;
+  padding: 3rem 2.5rem;
+  color: #2b2b2b;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+}
+
+.cert-border-outer {
+  border: 2px solid #b8860b;
+  padding: 2rem;
+  height: 100%;
+}
+
+.cert-border-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cert-seal-icon {
+  font-size: 3rem;
+  color: #b8860b;
+  line-height: 1;
+}
+
+.cert-org {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.cert-subtitle {
+  font-size: 1.15rem;
+  color: #b8860b;
+  letter-spacing: 5px;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.cert-awarded {
+  font-style: italic;
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+.cert-donor-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  border-bottom: 2px solid #b8860b;
+  padding-bottom: 0.5rem;
+  min-width: 300px;
+  margin: 0.75rem 0;
+}
+
+.cert-statement {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: #444;
+  max-width: 580px;
+  margin: 0.75rem auto;
+}
+
+.cert-tier-stamp {
+  margin: 0.75rem 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #b8860b;
+  border: 2px solid #b8860b;
+  padding: 0.35rem 1rem;
+  border-radius: 4px;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.cert-signatures {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 3rem;
+  padding: 0 2rem;
+}
+
+.sig-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px;
+  border-top: 1px solid #777;
+  padding-top: 0.5rem;
+}
+
+.sig-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #222;
+}
+
+.sig-title {
+  font-size: 0.72rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+@media (max-width: 576px) {
+  .cert-document-frame {
+    border-width: 8px;
+    padding: 1.5rem 1rem;
+  }
+  .cert-border-outer {
+    padding: 1rem;
+  }
+  .cert-donor-name {
+    font-size: 1.75rem;
+    min-width: 100%;
+  }
+  .cert-org {
+    font-size: 1.2rem;
+  }
+  .cert-subtitle {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+  }
+  .cert-statement {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .cert-signatures {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+
+.html2pdf-printing {
+  width: 1000px !important;
+  margin: 0 auto !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background: #fdfbf7 !important;
+  box-sizing: border-box !important;
+}
+
+.html2pdf-printing .cert-border-inner {
+  gap: 1.25rem !important;
+}
+
+.html2pdf-printing .cert-signatures {
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  margin-top: 4rem !important;
+  padding: 0 3rem !important;
+}
+
+.html2pdf-printing .sig-line {
+  width: 220px !important;
+}

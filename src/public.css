@@ -1,0 +1,19 @@
+/* ============================================================
+   Public Pages Master CSS - Scalable Modular Architecture
+   ============================================================ */
+
+/* Modular Section Imports */
+@import './styles/header.css';
+@import './styles/footer.css';
+@import './styles/hero.css';
+@import './styles/home.css';
+
+/* Global Layout Structure */
+.public-layout {
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+}
+
+.public-main-content {
+  flex-grow: 1;
+  padding-top: 0;
+}
