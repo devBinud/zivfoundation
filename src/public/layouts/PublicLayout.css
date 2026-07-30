@@ -9,7 +9,7 @@
 
 .public-main-content {
   flex-grow: 1;
-  padding-top: 134px;
+  padding-top: 125px;
 }
 
 @media (max-width: 992px) {

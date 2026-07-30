@@ -1,9 +1,22 @@
 /* App - Routing & Layout Setup */
 
-import React, { useState } from 'react';
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, Navigate, Outlet, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import './public.css';
+
+// Scroll To Top On Route Change Component
+const ScrollToTop = () => {
+  const { pathname, search } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [pathname, search]);
+
+  return null;
+};
 
 // Admin Components & Pages
 import Sidebar from './admin/components/Sidebar/Sidebar';
@@ -32,6 +45,8 @@ import PublicLayout from './public/layouts/PublicLayout';
 import PublicHome from './public/pages/PublicHome/PublicHome';
 import PublicAbout from './public/pages/PublicAbout/PublicAbout';
 import PublicContact from './public/pages/PublicContact/PublicContact';
+import PublicRegister from './public/pages/PublicRegister/PublicRegister';
+import PublicLogin from './public/pages/PublicLogin/PublicLogin';
 
 // Protected Route Guard
 const ProtectedRoute = ({ children }) => {
@@ -79,19 +94,19 @@ const AdminLayout = () => {
 function App() {
   return (
     <AuthProvider>
+      <ScrollToTop />
       <Routes>
         {/* Public Website Routes */}
         <Route path="/" element={<PublicLayout />}>
           <Route index element={<PublicHome />} />
           <Route path="about" element={<PublicAbout />} />
           <Route path="contact" element={<PublicContact />} />
+          <Route path="register" element={<PublicRegister />} />
+          <Route path="login" element={<PublicLogin />} />
         </Route>
 
-        {/* Public Admin Login Route */}
+        {/* Dedicated Admin Login Route */}
         <Route path="/admin/login" element={<Login />} />
-
-        {/* Legacy redirect /login -> /admin/login */}
-        <Route path="/login" element={<Navigate to="/admin/login" replace />} />
 
         {/* Protected Admin Panel Routes under /admin */}
         <Route

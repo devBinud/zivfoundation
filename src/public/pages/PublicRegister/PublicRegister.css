@@ -1,0 +1,513 @@
+/* ============================================================
+   Public Registration Page Styles
+   ============================================================ */
+
+.public-register-container {
+  max-width: 1000px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+.register-header-box {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.register-main-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #800000;
+  margin-bottom: 0.5rem;
+}
+
+.register-sub-subtitle {
+  font-size: 1rem;
+  color: #475569;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Donor Mode Pills Box */
+.donor-mode-pills-box {
+  display: inline-flex;
+  background: #f1f5f9;
+  border-radius: 30px;
+  padding: 4px;
+  border: 1px solid #cbd5e1;
+  margin-top: 1rem;
+}
+
+.donor-mode-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.55rem 1.25rem;
+  border-radius: 24px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #475569;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.donor-mode-pill.active {
+  background: #800000;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(128, 0, 0, 0.25);
+}
+
+.max-w-md {
+  max-width: 480px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.public-register-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07), 0 2px 10px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  padding: 2.25rem 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .public-register-card {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* Steps Indicator */
+.public-wizard-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 750px;
+  margin: 0 auto 1.5rem auto;
+  position: relative;
+}
+
+.pub-step-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 2px solid #cbd5e1;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 2;
+  transition: all 0.25s ease;
+}
+
+.pub-step-dot.active {
+  background: #800000;
+  border-color: #800000;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(128, 0, 0, 0.3);
+}
+
+.pub-step-line {
+  flex: 1;
+  height: 3px;
+  background: #e2e8f0;
+  margin: 0 8px;
+}
+
+.pub-wizard-divider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 1.5rem 0;
+}
+
+/* Step Content Form Elements */
+.pub-subheading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 0.6rem;
+}
+
+.pub-form-row {
+  display: flex;
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .pub-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.pub-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.pub-form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #334155;
+  margin-bottom: 0.4rem;
+}
+
+.pub-form-control {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #0f172a;
+  font-size: 0.92rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.pub-form-control:focus {
+  outline: none !important;
+  border-color: #800000 !important;
+  box-shadow: none !important;
+}
+
+/* Role Selection Grid */
+.pub-role-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .pub-role-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pub-role-card {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  transition: all 0.25s ease;
+}
+
+.pub-role-card:hover {
+  border-color: #cbd5e1;
+  background: #ffffff;
+}
+
+.pub-role-card.selected {
+  border-color: #800000;
+  background: #fff1f2;
+  box-shadow: 0 6px 20px rgba(128, 0, 0, 0.12);
+}
+
+.pub-role-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #800000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.pub-role-card.selected .pub-role-icon {
+  background: #800000;
+  color: #ffffff;
+}
+
+.pub-role-info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
+}
+
+.pub-role-info p {
+  font-size: 0.86rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Phone & OTP Field */
+.pub-phone-input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pub-phone-prefix {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.65rem 0.9rem;
+  background: #f1f5f9;
+  border-right: 1px solid #cbd5e1;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.pub-phone-field {
+  flex: 1;
+  border: none;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.92rem;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Buttons */
+.pub-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.pub-btn-primary {
+  background: #800000;
+  color: #ffffff !important;
+}
+
+.pub-btn-primary:hover {
+  background: #990000;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(128, 0, 0, 0.25);
+}
+
+.pub-btn-secondary {
+  background: #f1f5f9;
+  color: #334155 !important;
+  border: 1px solid #cbd5e1;
+}
+
+.pub-btn-secondary:hover {
+  background: #e2e8f0;
+  color: #0f172a !important;
+}
+
+.pub-btn-success {
+  background: #10b981;
+  color: #ffffff !important;
+}
+
+.pub-btn-success:hover {
+  background: #059669;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Alert Boxes */
+.pub-alert {
+  padding: 0.85rem 1.15rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.pub-alert-danger {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecdd3;
+}
+
+.pub-alert-info {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.pub-alert-success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+/* Upload Box */
+.pub-upload-box {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background: #f8fafc;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.pub-upload-box:hover {
+  border-color: #800000;
+  background: #fff1f2;
+}
+
+.pub-upload-box input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.pub-upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.pub-upload-icon {
+  color: #800000;
+}
+
+.pub-upload-text {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+
+.pub-upload-hint {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Summary Box */
+.pub-summary-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.pub-summary-section {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.85rem;
+}
+
+.pub-summary-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.pub-summary-section h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #800000;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.pub-summary-section p {
+  font-size: 0.88rem;
+  color: #334155;
+  margin: 0.3rem 0;
+}
+
+.pub-bg-pill {
+  display: inline-block;
+  background: #800000;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.badge-verified {
+  color: #059669;
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-left: 6px;
+}
+
+/* Password meter */
+.pwd-meter-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pwd-meter-bar {
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+.pwd-meter-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Success Card */
+.pub-success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #ecfdf5;
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin: 0 auto 1.25rem auto;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Footer Controls */
+.pub-wizard-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.pub-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #475569;
+  cursor: pointer;
+}

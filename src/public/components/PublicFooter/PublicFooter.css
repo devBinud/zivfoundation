@@ -198,7 +198,7 @@ html.light-theme .public-footer {
 
 .footer-subscribe-btn {
   background: linear-gradient(135deg, #800000 0%, #991b1b 100%);
-  color: #ffffff;
+  color: #ffffff !important;
   border: none;
   padding: 0.65rem 1.25rem;
   border-radius: 8px;
@@ -211,6 +211,7 @@ html.light-theme .public-footer {
 
 .footer-subscribe-btn:hover {
   background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
+  color: #ffffff !important;
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(128, 0, 0, 0.3);
 }

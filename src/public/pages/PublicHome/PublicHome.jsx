@@ -88,7 +88,7 @@ const PublicHome = () => {
       icon: <FaHeart />,
       desc: 'The Donor Login portal allows registered voluntary donors to securely access their profiles, view donation history, update personal details, and receive notifications about nearby emergency requests.',
       btnText: 'Donor Login',
-      link: '/login'
+      link: '/register?role=donor&mode=login'
     },
     {
       id: 3,

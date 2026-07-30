@@ -247,7 +247,7 @@ const PublicHeader = () => {
               </button>
 
               <div className="dropdown-menu-box">
-                <Link to="/contact#donor-register" className="dropdown-menu-item" onClick={closeDropdown}>
+                <Link to="/register?role=donor" className="dropdown-menu-item" onClick={closeDropdown}>
                   {t.register}
                 </Link>
                 <Link to="/#camps" className="dropdown-menu-item" onClick={closeDropdown}>
@@ -278,11 +278,11 @@ const PublicHeader = () => {
               </button>
 
               <div className="dropdown-menu-box right-aligned">
-                <Link to="/admin/login" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.adminLogin}
+                <Link to="/login" className="dropdown-menu-item" onClick={closeDropdown}>
+                  Public Account Login
                 </Link>
                 <Link to="/admin/login" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.partnerLogin}
+                  {t.adminLogin}
                 </Link>
               </div>
             </li>
@@ -294,10 +294,7 @@ const PublicHeader = () => {
       <div className="announcement-ticker-bar">
         <div className="ticker-container">
           <div className="ticker-label">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="pulse-indicator">
-              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-            </svg>
-            <span>{t.tickerLabel}</span>
+            <span>LATEST</span>
           </div>
           <div className="ticker-marquee-wrapper">
             <div className="ticker-marquee-content">
@@ -360,7 +357,7 @@ const PublicHeader = () => {
               </button>
               {mobileAccordion['donate'] && (
                 <div className="mobile-accordion-body">
-                  <Link to="/contact#donor-register" onClick={() => setMobileMenuOpen(false)}>• {t.register}</Link>
+                  <Link to="/register?role=donor" onClick={() => setMobileMenuOpen(false)}>• {t.register}</Link>
                   <Link to="/#camps" onClick={() => setMobileMenuOpen(false)}>• {t.camps}</Link>
                   <Link to="/about#guidelines" onClick={() => setMobileMenuOpen(false)}>• {t.eligibility}</Link>
                 </div>
@@ -375,14 +372,14 @@ const PublicHeader = () => {
               </button>
               {mobileAccordion['login'] && (
                 <div className="mobile-accordion-body">
+                  <Link to="/login" onClick={() => setMobileMenuOpen(false)}>• Public Account Login</Link>
                   <Link to="/admin/login" onClick={() => setMobileMenuOpen(false)}>• {t.adminLogin}</Link>
-                  <Link to="/admin/login" onClick={() => setMobileMenuOpen(false)}>• {t.partnerLogin}</Link>
                 </div>
               )}
             </div>
 
             <div className="mobile-portal-login-cta">
-              <Link to="/admin/login" className="btn btn-primary w-full" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/login" className="btn btn-primary w-full" onClick={() => setMobileMenuOpen(false)}>
                 🔐 {t.login}
               </Link>
             </div>

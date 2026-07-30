@@ -18,7 +18,7 @@
 
 .public-main-content {
   flex-grow: 1;
-  padding-top: 134px;
+  padding-top: 125px;
   overflow-x: hidden;
 }
 
@@ -26,4 +26,91 @@
   .public-main-content {
     padding-top: 90px;
   }
+}
+
+/* Single Simple Border Input Rules - No Shadows or Glows */
+input, select, textarea {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #800000 !important;
+}
+
+/* Fix Chrome Autofill blue shadow background & keep clean 1px border */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: none !important;
+}
+
+input:-webkit-autofill:focus {
+  border-color: #800000 !important;
+}
+
+/* ============================================================
+   Page Header Banner & Breadcrumbs (Government / Modern Portal Style)
+   ============================================================ */
+.page-breadcrumb-banner {
+  background: #1e3a8a;
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+  padding: 2.25rem 1.5rem;
+  color: #ffffff;
+  width: 100%;
+  margin-top: -3px !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  position: relative;
+  z-index: 1;
+}
+
+.page-breadcrumb-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-breadcrumb-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.4rem 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.page-breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+.page-breadcrumb-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.page-breadcrumb-link:hover {
+  text-decoration: underline;
+  color: #60a5fa;
+}
+
+.page-breadcrumb-separator {
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+.page-breadcrumb-current {
+  color: #93c5fd;
+  font-weight: 600;
 }

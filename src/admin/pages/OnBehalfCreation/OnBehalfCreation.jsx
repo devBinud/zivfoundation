@@ -16,7 +16,7 @@ const locationData = {
 
 const checkPasswordStrength = (pwd) => {
   if (!pwd) return { score: 0, label: 'Empty', color: '#6b7280' };
-  
+
   let score = 0;
   const hasMinLength = pwd.length >= 8;
   const hasNumber = /[0-9]/.test(pwd);

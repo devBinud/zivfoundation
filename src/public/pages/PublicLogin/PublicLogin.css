@@ -1,0 +1,166 @@
+/* ============================================================
+   Public Website Login Page Styles
+   ============================================================ */
+
+.public-login-container {
+  max-width: 540px;
+  margin: 2rem auto 4.5rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+.pub-login-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  padding: 2.5rem 2.25rem;
+}
+
+@media (max-width: 580px) {
+  .pub-login-card {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
+.pub-login-header {
+  margin-bottom: 2rem;
+}
+
+.pub-login-logo {
+  height: 52px;
+  width: auto;
+  margin-bottom: 0.85rem;
+}
+
+.pub-login-header h2 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #800000;
+  margin-bottom: 0.35rem;
+}
+
+.pub-login-header p {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* User Type Switcher Tabs */
+.pub-login-tabs {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 1.75rem;
+}
+
+.pub-tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.65rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.pub-tab-btn.active {
+  background: #ffffff;
+  color: #800000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Login Method Selector Pills */
+.login-method-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.method-pill {
+  flex: 1;
+  padding: 0.45rem;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.method-pill.active {
+  background: #fff1f2;
+  border-color: #800000;
+  color: #800000;
+  font-weight: 700;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Footer Section */
+.pub-login-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f1f5f9;
+  text-align: center;
+}
+
+.pub-reg-prompt span {
+  font-size: 0.88rem;
+  color: #64748b;
+}
+
+.pub-reg-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.pub-link-highlight {
+  color: #800000;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pub-link-highlight:hover {
+  color: #990000;
+  text-decoration: underline;
+}
+
+.admin-portal-link-box {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  border: 1px solid #e2e8f0;
+}
+
+.admin-redirect-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.admin-redirect-link:hover {
+  color: #800000;
+}
