@@ -154,6 +154,97 @@ const PublicHome = () => {
         </div>
       </section>
 
+      {/* Step-by-Step Guide Section */}
+      <section className="step-guide-section">
+        <div className="step-guide-card">
+          <div className="step-guide-header">
+            <h2 className="step-guide-title">Step-by-step guide</h2>
+          </div>
+
+          <div className="step-guide-grid">
+            {/* Step 1 */}
+            <div className="step-guide-item">
+              <div className="step-illustration-wrap">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="26" y="15" width="28" height="50" rx="6" stroke="#000000" strokeWidth="2.5" fill="#ffffff"/>
+                  <rect x="30" y="22" width="20" height="32" rx="2" fill="#fef08a" stroke="#000000" strokeWidth="1.5"/>
+                  <circle cx="48" cy="18" r="10" fill="#000000"/>
+                  <path d="M43 18 L46 21 L53 14" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M18 45 C18 45 26 40 26 48 C26 52 20 54 18 50" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <span className="step-number">1.</span>
+              <h3 className="step-item-title">Sign up online</h3>
+              <Link to="/register?role=donor" className="step-read-more">
+                <span>Read more</span>
+                <FaArrowRight />
+              </Link>
+            </div>
+
+            {/* Step 2 */}
+            <div className="step-guide-item">
+              <div className="step-illustration-wrap">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="36" cy="32" r="18" stroke="#000000" strokeWidth="2.5" fill="#ffffff"/>
+                  <path d="M49 45 L62 58" stroke="#000000" strokeWidth="4" strokeLinecap="round"/>
+                  <circle cx="36" cy="32" r="7" fill="#000000"/>
+                  <line x1="36" y1="20" x2="36" y2="23" stroke="#000000" strokeWidth="2"/>
+                  <line x1="36" y1="41" x2="36" y2="44" stroke="#000000" strokeWidth="2"/>
+                  <line x1="24" y1="32" x2="27" y2="32" stroke="#000000" strokeWidth="2"/>
+                  <line x1="45" y1="32" x2="48" y2="32" stroke="#000000" strokeWidth="2"/>
+                </svg>
+              </div>
+              <span className="step-number">2.</span>
+              <h3 className="step-item-title">Pass the screening</h3>
+              <Link to="/about" className="step-read-more">
+                <span>Read more</span>
+                <FaArrowRight />
+              </Link>
+            </div>
+
+            {/* Step 3 */}
+            <div className="step-guide-item">
+              <div className="step-illustration-wrap">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="20" y="16" width="22" height="32" rx="4" stroke="#000000" strokeWidth="2.5" fill="#dc2626"/>
+                  <path d="M31 16 L31 10" stroke="#000000" strokeWidth="2"/>
+                  <path d="M31 24 C31 24 26 31 26 34 C26 37 28 39 31 39 C34 39 36 37 36 34 C36 31 31 24 31 24 Z" fill="#ffffff"/>
+                  <path d="M31 48 C31 60 48 60 48 50" stroke="#000000" strokeWidth="2" strokeDasharray="3 3"/>
+                  <rect x="42" y="44" width="30" height="14" rx="7" stroke="#000000" strokeWidth="2.5" fill="#ffffff"/>
+                </svg>
+              </div>
+              <span className="step-number">3.</span>
+              <h3 className="step-item-title">Donate blood</h3>
+              <Link to="/register?role=donor" className="step-read-more">
+                <span>Read more</span>
+                <FaArrowRight />
+              </Link>
+            </div>
+
+            {/* Step 4 */}
+            <div className="step-guide-item">
+              <div className="step-illustration-wrap">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="24" y="18" width="44" height="28" rx="4" stroke="#000000" strokeWidth="2.5" fill="#ffffff"/>
+                  <rect x="28" y="22" width="12" height="12" rx="2" fill="#000000"/>
+                  <line x1="44" y1="24" x2="62" y2="24" stroke="#000000" strokeWidth="2"/>
+                  <line x1="44" y1="30" x2="56" y2="30" stroke="#000000" strokeWidth="2"/>
+                  <circle cx="62" cy="40" r="8" fill="#dc2626"/>
+                  <path d="M58 48 L62 40 L66 48" stroke="#dc2626" strokeWidth="2"/>
+                  <path d="M20 54 C20 54 30 42 38 42 C44 42 48 48 48 56" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                </svg>
+              </div>
+              <span className="step-number">4.</span>
+              <h3 className="step-item-title">Receive recognition</h3>
+              <Link to="/about" className="step-read-more">
+                <span>Read more</span>
+                <FaArrowRight />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Modern Vertical Tabs Services Section */}
       <section className="vertical-services-section">
         <div className="vertical-services-container">

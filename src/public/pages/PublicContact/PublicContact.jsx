@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import './PublicContact.css';
 
@@ -23,18 +24,27 @@ const PublicContact = () => {
 
   return (
     <div className="public-contact-page">
-      <section className="hero-section" style={{ paddingBottom: '2.5rem' }}>
-        <div className="hero-container">
-          <h1 className="hero-title">
-            Contact Ziv <span className="gradient-text">Foundation</span>
-          </h1>
-          <p className="hero-subtitle">
-            Have questions regarding NGO verification, certificate audits, or corporate partnerships? We are here to assist.
+      {/* Page Header Banner with Breadcrumbs */}
+      <div className="page-breadcrumb-banner">
+        <div className="page-breadcrumb-container">
+          <h1 className="page-breadcrumb-title">Contact Us</h1>
+          <nav className="page-breadcrumb-nav">
+            <Link to="/" className="page-breadcrumb-link">Home</Link>
+            <span className="page-breadcrumb-separator">/</span>
+            <span className="page-breadcrumb-current">Contact Us</span>
+          </nav>
+        </div>
+      </div>
+
+      <section className="section-container" style={{ paddingTop: '3rem' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto 2.5rem auto', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '2rem', fontWeight: '800', color: '#800000', marginBottom: '0.75rem' }}>
+            Get in Touch with Ziv Foundation
+          </h2>
+          <p style={{ fontSize: '1.05rem', color: '#475569', lineHeight: '1.6' }}>
+            Have questions regarding NGO verification, certificate audits, emergency requests, or partnerships? We are here to assist.
           </p>
         </div>
-      </section>
-
-      <section className="section-container" style={{ paddingTop: '0' }}>
         <div className="grid-container" style={{ gridTemplateColumns: '1fr 1.5fr', gap: '2.5rem' }}>
           <div className="glass-card" style={{ padding: '2rem' }}>
             <h3 style={{ fontSize: '1.35rem', marginBottom: '1.25rem' }}>Contact Information</h3>

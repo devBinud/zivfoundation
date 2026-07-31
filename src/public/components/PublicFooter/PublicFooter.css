@@ -1,253 +1,212 @@
 /* ============================================================
-   Premium Light Public Footer Styles
+   e-Raktkosh Inspired Dark Public Footer
    ============================================================ */
 
-.public-footer {
+.eraktkosh-footer {
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* 1. PARTNER LOGOS CAROUSEL STRIP */
+.partner-logos-section {
   background: #ffffff;
-  color: #334155;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 1rem 0;
   position: relative;
-  margin-top: 2rem;
-  font-family: 'Source Sans 3', -apple-system, sans-serif;
 }
 
-html.light-theme .public-footer {
+.partner-logos-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.partner-logos-scroll {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 0.5rem 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.partner-logos-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.partner-logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.partner-logo-item:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.carousel-nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #94a3b8;
   background: #ffffff;
   color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
 }
 
-.public-footer-top {
-  padding: 2rem 0 3.5rem 0;
-  background: transparent !important;
+.carousel-nav-btn:hover {
+  background: #333740;
+  color: #ffffff;
+  border-color: #333740;
 }
 
-.public-footer-container {
-  max-width: 1280px;
+/* 2. MAIN DARK GRAY FOOTER SECTION */
+.main-dark-footer {
+  background: #333740;
+  color: #ffffff;
+  padding: 3.5rem 0 4rem 0;
+  position: relative;
+}
+
+.footer-content-container {
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   display: grid;
-  grid-template-columns: 2.2fr 1fr 1fr 1.6fr;
-  gap: 3.5rem;
+  grid-template-columns: 2.2fr 1.2fr 1fr;
+  gap: 4rem;
   align-items: start;
 }
 
-.public-footer-container.flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-@media (max-width: 992px) {
-  .public-footer-container {
+@media (max-width: 900px) {
+  .footer-content-container {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
 }
 
 @media (max-width: 600px) {
-  .public-footer-container {
+  .footer-content-container {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 }
 
-/* Brand Column */
-.footer-brand {
+/* Dark Column Titles */
+.dark-col-title {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+/* Contact Column */
+.contact-col {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.contact-value {
+  margin: 0;
+  font-size: 0.925rem;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+/* Links List */
+.dark-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
   gap: 0.85rem;
-  margin-bottom: 1.1rem;
 }
 
-.footer-logo {
-  height: 42px;
-  width: auto;
-  object-fit: contain;
+.dark-footer-links a {
+  color: #ffffff;
+  font-size: 0.935rem;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.18s ease;
+  line-height: 1.4;
 }
 
-.footer-brand-text {
-  font-weight: 800;
-  font-size: 1.35rem;
-  color: #0f172a;
-  letter-spacing: -0.02em;
+.dark-footer-links a:hover {
+  color: #f87171;
+  text-decoration: underline;
 }
 
-.footer-brand-text .brand-accent {
-  color: #800000;
-}
-
-.footer-tagline {
-  color: #64748b;
-  font-size: 0.93rem;
-  line-height: 1.65;
-  margin-bottom: 1.5rem;
-  max-width: 360px;
-}
-
-/* Social Media Badges */
-.footer-socials {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.social-icon {
-  width: 38px;
-  height: 38px;
+/* Scroll To Top Floating Circle Button */
+.footer-scroll-top-btn {
+  position: absolute;
+  right: 2rem;
+  bottom: 1.25rem;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: #ffffff;
-  border: none;
+  border: 1px solid #64748b;
+  background: transparent;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #475569;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
-
-.social-icon:hover {
-  background: #800000;
-  color: #ffffff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(128, 0, 0, 0.25);
-}
-
-.social-icon svg {
-  transition: transform 0.2s ease;
-}
-
-.social-icon:hover svg {
-  transform: scale(1.1);
-}
-
-/* Column Headings & Links */
-.footer-col h4 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.footer-col ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-col ul a {
-  color: #475569;
-  font-size: 0.92rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  display: inline-block;
-}
-
-.footer-col ul a:hover {
-  color: #800000;
-  transform: none;
-}
-
-/* Newsletter Column Card */
-.newsletter-card {
-  background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: none;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-}
-
-.newsletter-col p {
-  color: #64748b;
-  font-size: 0.88rem;
-  margin-bottom: 1.1rem;
-  line-height: 1.55;
-}
-
-.footer-subscribe-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.footer-input {
-  width: 100%;
-  padding: 0.65rem 0.9rem;
-  background: #f8fafc;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  color: #0f172a;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-  box-sizing: border-box;
-}
-
-.footer-input:focus {
-  outline: none;
-  background: #ffffff;
-  border-color: #800000;
-  box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.12);
-}
-
-.footer-subscribe-btn {
-  background: linear-gradient(135deg, #800000 0%, #991b1b 100%);
-  color: #ffffff !important;
-  border: none;
-  padding: 0.65rem 1.25rem;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.9rem;
   cursor: pointer;
+  font-size: 0.75rem;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(128, 0, 0, 0.2);
 }
 
-.footer-subscribe-btn:hover {
-  background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
-  color: #ffffff !important;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(128, 0, 0, 0.3);
+.footer-scroll-top-btn:hover {
+  background: #ffffff;
+  color: #333740;
+  border-color: #ffffff;
 }
 
-/* Footer Bottom Bar */
-.public-footer-bottom {
-  background: #f7f7f7;
-  border-top: 1px solid #e2e8f0;
-  padding: 1.35rem 0;
-  font-size: 0.86rem;
-  color: #64748b;
+/* 3. SUB-FOOTER BLACK BAR */
+.sub-footer-black-bar {
+  background: #000000;
+  padding: 0.9rem 1.5rem;
+  text-align: center;
 }
 
-.public-footer-bottom p {
+.sub-footer-text {
   margin: 0;
+  color: #ffffff;
+  font-size: 0.875rem;
   font-weight: 500;
-}
-
-.footer-legal-links {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.footer-legal-links a {
-  color: #64748b;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-legal-links a:hover {
-  color: #800000;
-  transform: none;
-}
-
-.footer-legal-links .dot {
-  color: #cbd5e1;
+  letter-spacing: 0.01em;
 }
