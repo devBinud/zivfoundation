@@ -215,15 +215,18 @@ html.dark-theme .rakt-mobile-toggle-btn {
 
 .desktop-nav-menu {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   list-style: none;
   margin: 0;
   padding: 0;
+  gap: 0;
   font-family: 'Source Sans 3', sans-serif;
 }
 
 .nav-item-cell {
   position: relative;
+  display: flex;
+  align-items: stretch;
   flex: 0 0 auto;
 }
 
@@ -231,27 +234,40 @@ html.dark-theme .rakt-mobile-toggle-btn {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.55rem 1rem;
+  padding: 0.65rem 1.15rem;
   color: #ffffff !important;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.94rem;
   text-decoration: none;
   background: transparent;
   border: none;
+  border-radius: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
   font-family: 'Source Sans 3', sans-serif;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-.maroon-nav-link:hover,
-.maroon-nav-link.active,
+.maroon-nav-link:hover {
+  background: rgba(0, 0, 0, 0.16);
+  color: #ffffff !important;
+}
+
+.maroon-nav-link.active {
+  background: rgba(0, 0, 0, 0.28);
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
 .dropdown-parent.open > .maroon-nav-link {
-  background: rgba(0, 0, 0, 0.32);
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 0;
   color: #ffffff !important;
 }
 
 .highlight-portal-link {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .caret-icon {

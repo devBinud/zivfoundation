@@ -1,69 +1,64 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaTint, FaMapMarkerAlt, FaSearch, FaUsers, FaUserPlus, FaHeart, FaAmbulance, FaArrowRight, FaChevronDown } from 'react-icons/fa';
+import { 
+  FaTint, 
+  FaUsers, 
+  FaHeartbeat, 
+  FaShieldAlt, 
+  FaAward, 
+  FaAmbulance, 
+  FaArrowRight, 
+  FaCheckCircle, 
+  FaHeart,
+  FaHospitalAlt,
+  FaPhoneAlt,
+  FaFileMedicalAlt,
+  FaChevronRight
+} from 'react-icons/fa';
+import heroBloodImg from '../../../assets/bg/2149378364.jpg';
 import './PublicHome.css';
 
-const CustomSelect = ({ icon, placeholder, options, selectedValue, onSelect }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  return (
-    <div className="custom-select-wrapper" ref={dropdownRef}>
-      <div
-        className={`custom-select-trigger ${isOpen ? 'trigger-active' : ''}`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <span className="field-icon">{icon}</span>
-        <span className={`selected-text ${!selectedValue ? 'placeholder-style' : ''}`}>
-          {selectedValue || placeholder}
-        </span>
-        <FaChevronDown className={`select-chevron ${isOpen ? 'chevron-up' : ''}`} />
-      </div>
-
-      {isOpen && (
-        <div className="custom-options-dropdown">
-          <div
-            className={`custom-option-item ${!selectedValue ? 'opt-active' : ''}`}
-            onClick={() => {
-              onSelect('');
-              setIsOpen(false);
-            }}
-          >
-            {placeholder}
-          </div>
-          {options.map((opt) => (
-            <div
-              key={opt}
-              className={`custom-option-item ${selectedValue === opt ? 'opt-active' : ''}`}
-              onClick={() => {
-                onSelect(opt);
-                setIsOpen(false);
-              }}
-            >
-              {opt}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
-
 const PublicHome = () => {
-  const [activeTab, setActiveTab] = useState(2); // Donor Login active by default
-  const [bloodGroup, setBloodGroup] = useState('');
-  const [district, setDistrict] = useState('');
-  const [upazila, setUpazila] = useState('');
+  const [activeTab, setActiveTab] = useState(2);
+
+  const features = [
+    {
+      id: 1,
+      icon: <FaHeartbeat />,
+      title: 'Instant Donor Matching',
+      desc: 'Real-time district matching connects urgent patients with verified active donors near their medical centre.'
+    },
+    {
+      id: 2,
+      icon: <FaTint />,
+      title: 'Save Up to 3 Lives',
+      desc: 'Whole blood is separated into red blood cells, platelets, and plasma to treat multiple critically ill individuals.'
+    },
+    {
+      id: 3,
+      icon: <FaShieldAlt />,
+      title: '100% Free & Certified',
+      desc: 'All donation camps and testing procedures are conducted safely in government and accredited blood banks.'
+    },
+    {
+      id: 4,
+      icon: <FaCheckCircle />,
+      title: 'Free Health Screening',
+      desc: 'Every donor receives complimentary screening for hemoglobin levels, blood pressure, and blood grouping.'
+    },
+    {
+      id: 5,
+      icon: <FaAward />,
+      title: 'Digital Honors & Badges',
+      desc: 'Earn verifiable digital certificates and honors recognizing your noble contribution to community health.'
+    },
+    {
+      id: 6,
+      icon: <FaAmbulance />,
+      title: '24/7 Emergency SOS',
+      desc: 'Urgent emergency broadcast alerts mobilize nearby voluntary donors instantly during critical operations.'
+    }
+  ];
 
   const services = [
     {
@@ -77,7 +72,7 @@ const PublicHome = () => {
     {
       id: 1,
       title: 'Register as Requestor',
-      icon: <FaUserPlus />,
+      icon: <FaHospitalAlt />,
       desc: 'Register as a patient, family member, or hospital representative to post verified blood requirements, track live donor responses, and request immediate blood units.',
       btnText: 'Register as Requestor',
       link: '/register?role=requestor'
@@ -102,150 +97,100 @@ const PublicHome = () => {
 
   return (
     <div className="public-home-page">
-      {/* Hero Section */}
-      <section className="redlove-hero-section">
-        <div className="redlove-hero-overlay"></div>
-        <div className="redlove-hero-container">
-          <h1 className="redlove-hero-title">
-            Efficiently Connect with Blood Donors: Saving Lives Made Simpler and Faster
-          </h1>
-
-          {/* Blood Donor Search Bar */}
-          <div className="redlove-search-card">
-            <div className="search-field">
-              <CustomSelect
-                icon={<FaTint />}
-                placeholder="Select Blood Group"
-                options={['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-']}
-                selectedValue={bloodGroup}
-                onSelect={setBloodGroup}
-              />
+      {/* 1. Clean Modern Hero Section (Matching binudsoftwaresolutions.in layout) */}
+      <section className="binud-hero-section">
+        <div className="binud-hero-container">
+          <div className="binud-hero-content">
+            {/* Top Quality Badge */}
+            <div className="hero-quality-badge">
+              <span>Saving Lives Every Day</span>
+              <FaCheckCircle className="badge-check-icon" />
             </div>
 
-            <div className="search-divider"></div>
+            {/* Impact Headline */}
+            <h1 className="hero-modern-title">
+              Donate Blood & <br />
+              <span className="hero-banner-highlight">Save Valuable Lives</span> <br />
+              in Your Community
+            </h1>
 
-            <div className="search-field">
-              <CustomSelect
-                icon={<FaMapMarkerAlt />}
-                placeholder="Select a District"
-                options={['Dhaka', 'Chittagong', 'Sylhet', 'Rajshahi', 'Khulna', 'Barisal', 'Rangpur', 'Mymensingh']}
-                selectedValue={district}
-                onSelect={setDistrict}
-              />
+            {/* Subtitle */}
+            <p className="hero-modern-subtitle">
+              Join a compassionate network of verified voluntary blood donors and hospitals delivering urgent life-saving transfusions across Assam when every second matters.
+            </p>
+
+            {/* CTA Group */}
+            <div className="hero-modern-cta-group">
+              <Link to="/register?role=donor" className="hero-gold-btn">
+                <span>Start Donating</span>
+                <FaArrowRight className="btn-arrow" />
+              </Link>
+              <Link to="/#search" className="hero-outline-btn">
+                <span>Explore Services</span>
+                <FaChevronRight className="btn-arrow" />
+              </Link>
             </div>
-
-            <div className="search-divider"></div>
-
-            <div className="search-field">
-              <CustomSelect
-                icon={<FaMapMarkerAlt />}
-                placeholder="Select a Upazila"
-                options={['Dhanmondi', 'Gulshan', 'Mirpur', 'Uttara', 'Savar']}
-                selectedValue={upazila}
-                onSelect={setUpazila}
-              />
-            </div>
-
-            <button type="button" className="redlove-search-btn">
-              <FaSearch className="btn-icon" />
-              <span>SEARCH</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Step-by-Step Guide Section */}
-      <section className="step-guide-section">
-        <div className="step-guide-card">
-          <div className="step-guide-header">
-            <h2 className="step-guide-title">Step-by-step guide</h2>
           </div>
 
-          <div className="step-guide-grid">
-            {/* Step 1 */}
-            <div className="step-guide-item">
-              <div className="step-illustration-wrap">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="26" y="15" width="28" height="50" rx="6" stroke="#000000" strokeWidth="2.5" fill="#ffffff"/>
-                  <rect x="30" y="22" width="20" height="32" rx="2" fill="#fef08a" stroke="#000000" strokeWidth="1.5"/>
-                  <circle cx="48" cy="18" r="10" fill="#000000"/>
-                  <path d="M43 18 L46 21 L53 14" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M18 45 C18 45 26 40 26 48 C26 52 20 54 18 50" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <span className="step-number">1.</span>
-              <h3 className="step-item-title">Sign up online</h3>
-              <Link to="/register?role=donor" className="step-read-more">
-                <span>Read more</span>
-                <FaArrowRight />
-              </Link>
-            </div>
-
-            {/* Step 2 */}
-            <div className="step-guide-item">
-              <div className="step-illustration-wrap">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="36" cy="32" r="18" stroke="#000000" strokeWidth="2.5" fill="#ffffff"/>
-                  <path d="M49 45 L62 58" stroke="#000000" strokeWidth="4" strokeLinecap="round"/>
-                  <circle cx="36" cy="32" r="7" fill="#000000"/>
-                  <line x1="36" y1="20" x2="36" y2="23" stroke="#000000" strokeWidth="2"/>
-                  <line x1="36" y1="41" x2="36" y2="44" stroke="#000000" strokeWidth="2"/>
-                  <line x1="24" y1="32" x2="27" y2="32" stroke="#000000" strokeWidth="2"/>
-                  <line x1="45" y1="32" x2="48" y2="32" stroke="#000000" strokeWidth="2"/>
-                </svg>
-              </div>
-              <span className="step-number">2.</span>
-              <h3 className="step-item-title">Pass the screening</h3>
-              <Link to="/about" className="step-read-more">
-                <span>Read more</span>
-                <FaArrowRight />
-              </Link>
-            </div>
-
-            {/* Step 3 */}
-            <div className="step-guide-item">
-              <div className="step-illustration-wrap">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="20" y="16" width="22" height="32" rx="4" stroke="#000000" strokeWidth="2.5" fill="#dc2626"/>
-                  <path d="M31 16 L31 10" stroke="#000000" strokeWidth="2"/>
-                  <path d="M31 24 C31 24 26 31 26 34 C26 37 28 39 31 39 C34 39 36 37 36 34 C36 31 31 24 31 24 Z" fill="#ffffff"/>
-                  <path d="M31 48 C31 60 48 60 48 50" stroke="#000000" strokeWidth="2" strokeDasharray="3 3"/>
-                  <rect x="42" y="44" width="30" height="14" rx="7" stroke="#000000" strokeWidth="2.5" fill="#ffffff"/>
-                </svg>
-              </div>
-              <span className="step-number">3.</span>
-              <h3 className="step-item-title">Donate blood</h3>
-              <Link to="/register?role=donor" className="step-read-more">
-                <span>Read more</span>
-                <FaArrowRight />
-              </Link>
-            </div>
-
-            {/* Step 4 */}
-            <div className="step-guide-item">
-              <div className="step-illustration-wrap">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="24" y="18" width="44" height="28" rx="4" stroke="#000000" strokeWidth="2.5" fill="#ffffff"/>
-                  <rect x="28" y="22" width="12" height="12" rx="2" fill="#000000"/>
-                  <line x1="44" y1="24" x2="62" y2="24" stroke="#000000" strokeWidth="2"/>
-                  <line x1="44" y1="30" x2="56" y2="30" stroke="#000000" strokeWidth="2"/>
-                  <circle cx="62" cy="40" r="8" fill="#dc2626"/>
-                  <path d="M58 48 L62 40 L66 48" stroke="#dc2626" strokeWidth="2"/>
-                  <path d="M20 54 C20 54 30 42 38 42 C44 42 48 48 48 56" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                </svg>
-              </div>
-              <span className="step-number">4.</span>
-              <h3 className="step-item-title">Receive recognition</h3>
-              <Link to="/about" className="step-read-more">
-                <span>Read more</span>
-                <FaArrowRight />
-              </Link>
+          {/* Right Hero Visual with 2149378364.jpg */}
+          <div className="binud-hero-visual">
+            <div className="hero-image-wrapper">
+              <img 
+                src={heroBloodImg} 
+                alt="Voluntary Blood Donation Saves Lives" 
+                className="hero-main-photo" 
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Modern Vertical Tabs Services Section */}
+      {/* 2. Floating Overlapping Feature Card (Yellow/Lime Vibrant Card) */}
+      <section className="overlapping-card-wrapper">
+        <div className="overlapping-feature-card">
+          {/* Card Top Header */}
+          <div className="card-top-header">
+            <div className="card-title-col">
+              <h2 className="card-heading">
+                Why Choose <br />
+                <span className="card-highlight">Voluntary Blood</span> <br />
+                Donation?
+              </h2>
+            </div>
+            <div className="card-desc-col">
+              <p className="card-lead-text">
+                There are many vital, life-saving benefits to voluntary blood donation. With minimal time and zero cost, your single donation directly empowers emergency units, cancer therapies, and surgical recoveries.
+              </p>
+            </div>
+          </div>
+
+          {/* 6 Features Grid (2 Rows x 3 Cols) */}
+          <div className="card-features-grid">
+            {features.map((item) => (
+              <div key={item.id} className="feature-item-cell">
+                <div className="feature-icon-circle">
+                  {item.icon}
+                </div>
+                <div className="feature-text-block">
+                  <h3 className="feature-item-title">{item.title}</h3>
+                  <p className="feature-item-desc">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Card Bottom Centered CTA */}
+          <div className="card-bottom-action">
+            <Link to="/register?role=donor" className="card-bottom-btn">
+              GET STARTED NOW
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* 4. Interactive Services & Emergency Hub */}
       <section className="vertical-services-section">
         <div className="vertical-services-container">
           {/* Left Vertical Tabs Sidebar */}

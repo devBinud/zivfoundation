@@ -8,77 +8,7 @@
   box-sizing: border-box;
 }
 
-/* 1. PARTNER LOGOS CAROUSEL STRIP */
-.partner-logos-section {
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #cbd5e1;
-  padding: 1rem 0;
-  position: relative;
-}
 
-.partner-logos-container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-}
-
-.partner-logos-scroll {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2.5rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  width: 100%;
-  padding: 0.5rem 0;
-  scrollbar-width: none; /* Firefox */
-}
-
-.partner-logos-scroll::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
-
-.partner-logo-item {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  cursor: pointer;
-}
-
-.partner-logo-item:hover {
-  opacity: 0.85;
-  transform: translateY(-1px);
-}
-
-.carousel-nav-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid #94a3b8;
-  background: #ffffff;
-  color: #334155;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 0.75rem;
-  flex-shrink: 0;
-  transition: all 0.2s ease;
-}
-
-.carousel-nav-btn:hover {
-  background: #333740;
-  color: #ffffff;
-  border-color: #333740;
-}
 
 /* 2. MAIN DARK GRAY FOOTER SECTION */
 .main-dark-footer {
@@ -196,17 +126,4 @@
   border-color: #ffffff;
 }
 
-/* 3. SUB-FOOTER BLACK BAR */
-.sub-footer-black-bar {
-  background: #000000;
-  padding: 0.9rem 1.5rem;
-  text-align: center;
-}
 
-.sub-footer-text {
-  margin: 0;
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-}

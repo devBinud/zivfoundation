@@ -26,7 +26,6 @@ const translations = {
     tickerText: 'Contribute to saving valuable lives - Donate blood, join this noble cause of humanity | Download Ziv Blood Mobile App for instant live stock & emergency donor requests | Helpline: 1800-ZIV-BLOOD',
   },
   AS: {
-    helpline: 'হেল্পলাইন: ১০৪ / ১৮০০-ZIV-BLOOD',
     home: 'Home',
     about: 'About Us',
     aboutZf: 'About Ziv Foundation',
@@ -92,227 +91,182 @@ const PublicHeader = () => {
 
   return (
     <header className="rakt-header-wrapper" ref={dropdownRef}>
-      {/* 1. Top Header Bar */}
-      <div className="top-emblem-bar">
-        <div className="top-emblem-container">
-          <div className="emblem-brand-group">
-            <Link to="/" className="portal-brand-item" onClick={closeDropdown}>
-              <img src={logoZf} alt="Ziv Foundation Logo" className="portal-logo-img" />
-              <div className="portal-title-group">
-                <span className="portal-name">Ziv Foundation</span>
-              </div>
-            </Link>
+      <div className="simple-navbar-container">
+        {/* Brand Group */}
+        <Link to="/" className="portal-brand-item" onClick={closeDropdown}>
+          <img src={logoZf} alt="Ziv Foundation Logo" className="portal-logo-img" />
+          <div className="portal-title-group">
+            <span className="portal-name">Ziv Foundation</span>
           </div>
+        </Link>
 
-          {/* Top Right Utilities */}
-          <div className="top-utilities-group">
-            {/* Language Switcher Pill (English & অসমীয়া) */}
-            <div className="lang-switcher-pill" role="radiogroup" aria-label="Select Language">
-              <button
-                type="button"
-                className={`lang-btn ${lang === 'EN' ? 'active' : ''}`}
-                onClick={() => setLang('EN')}
-                title="English"
-              >
-                English
-              </button>
-              <button
-                type="button"
-                className={`lang-btn ${lang === 'AS' ? 'active' : ''}`}
-                onClick={() => setLang('AS')}
-                title="অসমীয়া (Assamese)"
-              >
-                অসমীয়া
-              </button>
-            </div>
+        {/* Desktop Navigation Links */}
+        <ul className="desktop-nav-menu">
+          {/* Home Link */}
+          <li className="nav-item-cell">
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) => `simple-nav-link ${isActive ? 'active' : ''}`}
+              onClick={closeDropdown}
+            >
+              {t.home}
+            </NavLink>
+          </li>
 
-            {/* Mobile Menu Toggle Button */}
+          {/* About Us Dropdown */}
+          <li
+            className={`nav-item-cell dropdown-parent ${activeDropdown === 'about' ? 'open' : ''}`}
+            onMouseEnter={() => setActiveDropdown('about')}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
             <button
-              className="rakt-mobile-toggle-btn"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle navigation menu"
-              aria-expanded={mobileMenuOpen}
+              type="button"
+              className="simple-nav-link dropdown-trigger"
+              onClick={() => toggleDropdown('about')}
+              aria-expanded={activeDropdown === 'about'}
             >
-              {mobileMenuOpen ? (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              ) : (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="18" x2="21" y2="18" />
-                </svg>
-              )}
+              <span>{t.about}</span>
+              <svg className="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </button>
-          </div>
-        </div>
-      </div>
 
-      {/* 2. Main Navigation Bar */}
-      <nav className="main-maroon-navbar">
-        <div className="main-navbar-container">
-          <ul className="desktop-nav-menu">
-            {/* Home Link */}
-            <li className="nav-item-cell">
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) => `maroon-nav-link ${isActive ? 'active' : ''}`}
-                onClick={closeDropdown}
-              >
-                {t.home}
-              </NavLink>
-            </li>
-
-            {/* About Us Dropdown */}
-            <li
-              className={`nav-item-cell dropdown-parent ${activeDropdown === 'about' ? 'open' : ''}`}
-              onMouseEnter={() => setActiveDropdown('about')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                type="button"
-                className="maroon-nav-link dropdown-trigger"
-                onClick={() => toggleDropdown('about')}
-                aria-expanded={activeDropdown === 'about'}
-              >
-                <span>{t.about}</span>
-                <svg className="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-
-              <div className="dropdown-menu-box">
-                <Link to="/about" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.aboutZf}
-                </Link>
-                <Link to="/about#impact" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.impact}
-                </Link>
-                <Link to="/contact" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.contact}
-                </Link>
-              </div>
-            </li>
-
-            {/* Looking for Blood Dropdown */}
-            <li
-              className={`nav-item-cell dropdown-parent ${activeDropdown === 'looking' ? 'open' : ''}`}
-              onMouseEnter={() => setActiveDropdown('looking')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                type="button"
-                className="maroon-nav-link dropdown-trigger"
-                onClick={() => toggleDropdown('looking')}
-                aria-expanded={activeDropdown === 'looking'}
-              >
-                <span>{t.looking}</span>
-                <svg className="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-
-              <div className="dropdown-menu-box">
-                <Link to="/#search" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.availability}
-                </Link>
-                <Link to="/#directory" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.directory}
-                </Link>
-                <Link to="/contact#request" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.emergency}
-                </Link>
-              </div>
-            </li>
-
-            {/* Want to Donate Dropdown */}
-            <li
-              className={`nav-item-cell dropdown-parent ${activeDropdown === 'donate' ? 'open' : ''}`}
-              onMouseEnter={() => setActiveDropdown('donate')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                type="button"
-                className="maroon-nav-link dropdown-trigger"
-                onClick={() => toggleDropdown('donate')}
-                aria-expanded={activeDropdown === 'donate'}
-              >
-                <span>{t.donate}</span>
-                <svg className="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-
-              <div className="dropdown-menu-box">
-                <Link to="/register?role=donor" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.register}
-                </Link>
-                <Link to="/#camps" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.camps}
-                </Link>
-                <Link to="/about#guidelines" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.eligibility}
-                </Link>
-              </div>
-            </li>
-
-            {/* Blood Centre Login Dropdown */}
-            <li
-              className={`nav-item-cell dropdown-parent ${activeDropdown === 'login' ? 'open' : ''}`}
-              onMouseEnter={() => setActiveDropdown('login')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                type="button"
-                className="maroon-nav-link dropdown-trigger highlight-portal-link"
-                onClick={() => toggleDropdown('login')}
-                aria-expanded={activeDropdown === 'login'}
-              >
-                <span>{t.login}</span>
-                <svg className="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-
-              <div className="dropdown-menu-box right-aligned">
-                <Link to="/login" className="dropdown-menu-item" onClick={closeDropdown}>
-                  Public Account Login
-                </Link>
-                <Link to="/admin/login" className="dropdown-menu-item" onClick={closeDropdown}>
-                  {t.adminLogin}
-                </Link>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      {/* 3. Ticker Announcement Bar */}
-      <div className="announcement-ticker-bar">
-        <div className="ticker-container">
-          <div className="ticker-label">
-            <span>LATEST</span>
-          </div>
-          <div className="ticker-marquee-wrapper">
-            <div className="ticker-marquee-content">
-              {t.tickerText}
+            <div className="dropdown-menu-box">
+              <Link to="/about" className="dropdown-menu-item" onClick={closeDropdown}>
+                {t.aboutZf}
+              </Link>
+              <Link to="/about#impact" className="dropdown-menu-item" onClick={closeDropdown}>
+                {t.impact}
+              </Link>
+              <Link to="/contact" className="dropdown-menu-item" onClick={closeDropdown}>
+                {t.contact}
+              </Link>
             </div>
-          </div>
+          </li>
+
+          {/* Looking for Blood Dropdown */}
+          <li
+            className={`nav-item-cell dropdown-parent ${activeDropdown === 'looking' ? 'open' : ''}`}
+            onMouseEnter={() => setActiveDropdown('looking')}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
+            <button
+              type="button"
+              className="simple-nav-link dropdown-trigger"
+              onClick={() => toggleDropdown('looking')}
+              aria-expanded={activeDropdown === 'looking'}
+            >
+              <span>{t.looking}</span>
+              <svg className="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <div className="dropdown-menu-box">
+              <Link to="/#search" className="dropdown-menu-item" onClick={closeDropdown}>
+                {t.availability}
+              </Link>
+              <Link to="/#directory" className="dropdown-menu-item" onClick={closeDropdown}>
+                {t.directory}
+              </Link>
+              <Link to="/contact#request" className="dropdown-menu-item" onClick={closeDropdown}>
+                {t.emergency}
+              </Link>
+            </div>
+          </li>
+
+          {/* Want to Donate Dropdown */}
+          <li
+            className={`nav-item-cell dropdown-parent ${activeDropdown === 'donate' ? 'open' : ''}`}
+            onMouseEnter={() => setActiveDropdown('donate')}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
+            <button
+              type="button"
+              className="simple-nav-link dropdown-trigger"
+              onClick={() => toggleDropdown('donate')}
+              aria-expanded={activeDropdown === 'donate'}
+            >
+              <span>{t.donate}</span>
+              <svg className="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <div className="dropdown-menu-box">
+              <Link to="/register?role=donor" className="dropdown-menu-item" onClick={closeDropdown}>
+                {t.register}
+              </Link>
+              <Link to="/#camps" className="dropdown-menu-item" onClick={closeDropdown}>
+                {t.camps}
+              </Link>
+              <Link to="/about#guidelines" className="dropdown-menu-item" onClick={closeDropdown}>
+                {t.eligibility}
+              </Link>
+            </div>
+          </li>
+
+          {/* Blood Centre Login Dropdown */}
+          <li
+            className={`nav-item-cell dropdown-parent ${activeDropdown === 'login' ? 'open' : ''}`}
+            onMouseEnter={() => setActiveDropdown('login')}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
+            <button
+              type="button"
+              className="simple-nav-link dropdown-trigger highlight-portal-link"
+              onClick={() => toggleDropdown('login')}
+              aria-expanded={activeDropdown === 'login'}
+            >
+              <span>{t.login}</span>
+              <svg className="caret-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <div className="dropdown-menu-box right-aligned">
+              <Link to="/login" className="dropdown-menu-item" onClick={closeDropdown}>
+                Public Account Login
+              </Link>
+              <Link to="/admin/login" className="dropdown-menu-item" onClick={closeDropdown}>
+                {t.adminLogin}
+              </Link>
+            </div>
+          </li>
+        </ul>
+
+        {/* Right Utilities: Contact Us CTA & Mobile Toggle */}
+        <div className="navbar-right-utilities">
+          <Link to="/contact" className="navbar-cta-btn">
+            Contact us
+          </Link>
+
+          <button
+            className="rakt-mobile-toggle-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
 
-      {/* 4. Mobile Menu Drawer */}
+      {/* 3. Mobile Menu Drawer */}
       <div className={`mobile-nav-drawer ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-drawer-content">
-          <div className="mobile-utility-row">
-            <div className="lang-switcher-pill">
-              <button type="button" className={`lang-btn ${lang === 'EN' ? 'active' : ''}`} onClick={() => setLang('EN')}>English</button>
-              <button type="button" className={`lang-btn ${lang === 'AS' ? 'active' : ''}`} onClick={() => setLang('AS')}>অসমীয়া</button>
-            </div>
-          </div>
 
           <div className="mobile-menu-list">
             <NavLink to="/" end className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
