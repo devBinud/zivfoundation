@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
+import { FaEnvelope, FaLock, FaEye, FaEyeSlash, FaShieldAlt } from 'react-icons/fa';
 import loginBg from '../../../assets/bg/login_bg.png';
-import logoZf from '../../../assets/logo_zf.png';
+import logoZf from '../../../assets/logo.png';
 import './Login.css';
 
 const Login = () => {
@@ -42,79 +43,102 @@ const Login = () => {
   };
 
   return (
-    <div className="login-page" style={{ background: `linear-gradient(rgba(244, 246, 249, 0.75), rgba(244, 246, 249, 0.9)), url(${loginBg}) no-repeat center center / cover` }}>
-      <div className="login-glow"></div>
-      
-      <div className="light-login-card login-card animate-fade">
-        <div className="login-header">
-          <img src={logoZf} alt="Ziv Foundation Logo" className="login-logo" />
-          <h2>Ziv Foundation</h2>
-          <p>Secure Administrator Access Portal</p>
-        </div>
+    <div
+      className="admin-login-page"
+      style={{
+        backgroundImage: `linear-gradient(135deg, rgba(10, 17, 30, 0.88) 0%, rgba(15, 23, 42, 0.82) 50%, rgba(10, 17, 30, 0.92) 100%), url(${loginBg})`
+      }}
+    >
+      <div className="admin-glow-effect"></div>
 
-        {(localError || authError) && (
-          <div className="alert-box alert-danger">
-            {localError || authError}
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="login-form" autoComplete="off">
-          <div className="form-group">
-            <label className="form-label">Email Address</label>
-            <input
-              type="email"
-              className="form-control"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter email address"
-              autoComplete="off"
-              required
-            />
+      <div className="admin-login-wrapper">
+        <div className="admin-login-card animate-fade">
+          
+          {/* Top Brand Header */}
+          <div className="admin-brand-header">
+            <img src={logoZf} alt="Ziv Foundation Logo" className="admin-brand-logo" />
           </div>
 
-          <div className="form-group">
-            <label className="form-label">Password</label>
-            <div className="password-input-container">
-              <input
-                type={showPassword ? 'text' : 'password'}
-                className="form-control"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                autoComplete="new-password"
-                required
-              />
-              <button
-                type="button"
-                className="password-toggle-btn"
-                onClick={() => setShowPassword(!showPassword)}
-                aria-label={showPassword ? "Hide password" : "Show password"}
-              >
-                {showPassword ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="eye-icon">
-                    <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
-                    <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
-                    <path d="M6.61 6.61A13.52 13.52 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
-                    <line x1="2" y1="2" x2="22" y2="22"/>
-                  </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="eye-icon">
-                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-                    <circle cx="12" cy="12" r="3"/>
-                  </svg>
-                )}
-              </button>
+          {/* 2-Pill Segment Switcher (Nemcare style) */}
+          <div className="admin-pill-switcher">
+            <button type="button" className="admin-pill-btn active">
+              Admin Portal
+            </button>
+            <Link to="/login" className="admin-pill-btn link-btn">
+              Public Portal
+            </Link>
+          </div>
+
+          {/* Title & Subtitle */}
+          <div className="admin-title-section">
+            <h2 className="admin-main-title">Administrator Login</h2>
+            <p className="admin-main-subtitle">Sign in to access system control panel & settings</p>
+          </div>
+
+          {(localError || authError) && (
+            <div className="admin-alert-box admin-alert-danger animate-shake">
+              <FaShieldAlt className="alert-icon" />
+              <span>{localError || authError}</span>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="admin-form" autoComplete="off">
+            <div className="admin-form-group">
+              <label className="admin-form-label">ADMIN EMAIL ADDRESS</label>
+              <div className="admin-input-container">
+                <FaEnvelope className="admin-input-icon" />
+                <input
+                  type="email"
+                  className="admin-form-control"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="admin@zivfoundation.org"
+                  autoComplete="off"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="admin-form-group">
+              <label className="admin-form-label">PASSWORD</label>
+              <div className="admin-input-container">
+                <FaLock className="admin-input-icon" />
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  className="admin-form-control has-toggle"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  autoComplete="new-password"
+                  required
+                />
+                <button
+                  type="button"
+                  className="admin-eye-btn"
+                  onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" className="admin-btn-primary w-full" disabled={loading}>
+              {loading ? (
+                <span className="flex-center gap-2">
+                  <span className="spinner-small"></span> Verifying Session...
+                </span>
+              ) : 'Sign In as Administrator'}
+            </button>
+          </form>
+
+          <div className="admin-card-footer">
+            <div className="admin-footer-copyright">
+              © 2026 Ziv Foundation. All rights reserved.
             </div>
           </div>
 
-          <button type="submit" className="btn btn-primary w-full mt-4" disabled={loading}>
-            {loading ? (
-              <span className="flex-center gap-2">
-                <span className="spinner-small"></span> Verifying Session...
-              </span>
-            ) : 'Sign In To Panel'}
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   );

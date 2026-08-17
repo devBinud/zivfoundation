@@ -1,84 +1,149 @@
 /* ============================================================
-   e-Raktkosh Inspired Dark Public Footer
+   Modern Dark CTA Banner & Minimalist White Footer Styles
+   (Matches Reference Design Exact Structure)
    ============================================================ */
 
-.eraktkosh-footer {
+.std-full-footer-wrapper {
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
   box-sizing: border-box;
 }
 
-
-
-/* 2. MAIN DARK GRAY FOOTER SECTION */
-.main-dark-footer {
-  background: #333740;
-  color: #ffffff;
-  padding: 3.5rem 0 4rem 0;
+/* ============================================================
+   1. WARM LIGHT CTA SECTION (#f8e9e6)
+   ============================================================ */
+.std-cta-light-section {
   position: relative;
+  background: #f8e9e6;
+  padding: 4.5rem 1.5rem 5rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.footer-content-container {
+.std-cta-inner-container {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.std-cta-headline {
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.std-cta-description {
+  font-size: 15.5px;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0 0 2rem 0;
+  max-width: 620px;
+}
+
+.std-cta-btn-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Action Button */
+.std-cta-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #b91c1c;
+  color: #ffffff !important;
+  padding: 12px 30px;
+  border-radius: 99px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.18s ease;
+  letter-spacing: 0.01em;
+}
+
+.std-cta-action-btn:hover {
+  background: #991b1b;
+}
+
+.btn-heart-icon {
+  font-size: 13px;
+}
+
+/* ============================================================
+   2. MINIMALIST WHITE FOOTER SECTION
+   ============================================================ */
+.std-white-footer-section {
+  background: #ffffff;
+  padding: 4.5rem 0 2.5rem 0;
+  color: #475569;
+}
+
+.std-footer-container {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 2.2fr 1.2fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.8fr 1.2fr 1.2fr 1.5fr;
+  gap: 3.5rem;
   align-items: start;
 }
 
 @media (max-width: 900px) {
-  .footer-content-container {
+  .std-footer-container {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
 }
 
 @media (max-width: 600px) {
-  .footer-content-container {
+  .std-footer-container {
     grid-template-columns: 1fr;
     gap: 2rem;
+    padding: 0 1.25rem;
   }
 }
 
-/* Dark Column Titles */
-.dark-col-title {
-  color: #ffffff;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0 0 1.5rem 0;
-  line-height: 1.2;
+/* Brand Column */
+.std-f-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
 }
 
-/* Contact Column */
-.contact-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+.std-f-logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
 }
 
-.contact-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+.std-f-brand-name {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.03em;
 }
 
-.contact-label {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #ffffff;
-}
-
-.contact-value {
-  margin: 0;
-  font-size: 0.925rem;
-  color: #d1d5db;
-  line-height: 1.5;
+/* Column Headings */
+.std-f-col-title {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.01em;
 }
 
 /* Links List */
-.dark-footer-links {
+.std-f-links {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -87,43 +152,86 @@
   gap: 0.85rem;
 }
 
-.dark-footer-links a {
-  color: #ffffff;
-  font-size: 0.935rem;
+.std-f-links a {
+  color: #475569;
+  font-size: 13.5px;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 500;
   transition: color 0.18s ease;
-  line-height: 1.4;
 }
 
-.dark-footer-links a:hover {
-  color: #f87171;
-  text-decoration: underline;
+.std-f-links a:hover {
+  color: #0f172a;
 }
 
-/* Scroll To Top Floating Circle Button */
-.footer-scroll-top-btn {
-  position: absolute;
-  right: 2rem;
-  bottom: 1.25rem;
+/* Contact Column */
+.std-f-direct-link {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.15s ease;
+}
+
+.std-f-direct-link:hover {
+  color: #22c55e;
+}
+
+.std-f-contact-sub {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 0.35rem 0;
+  line-height: 1.5;
+}
+
+/* 3. BOTTOM ROW */
+.std-f-bottom-divider {
+  max-width: 1240px;
+  margin: 3.5rem auto 1.5rem auto;
+  height: 1px;
+  background: #f1f5f9;
+  padding: 0 2rem;
+}
+
+.std-f-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.std-f-copyright {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Social Icons */
+.std-f-social-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.std-f-social-icon {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid #64748b;
-  background: transparent;
-  color: #ffffff;
+  background: #f1f5f9;
+  color: #0f172a;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  font-size: 0.75rem;
-  transition: all 0.2s ease;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 
-.footer-scroll-top-btn:hover {
-  background: #ffffff;
-  color: #333740;
-  border-color: #ffffff;
+.std-f-social-icon:hover {
+  background: #0f172a;
+  color: #ffffff;
 }
-
-

@@ -1,166 +1,424 @@
 /* ============================================================
-   Public Website Login Page Styles
+   Nemcare-Inspired Minimal & Modern Public Login (Single Clean Lines)
    ============================================================ */
 
-.public-login-container {
-  max-width: 540px;
-  margin: 2rem auto 4.5rem auto;
-  padding: 0 1.5rem;
-  font-family: 'Source Sans 3', sans-serif;
+.nem-login-page {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 3.5rem 1.25rem;
+  font-family: 'Source Sans 3', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1e293b;
+  overflow: hidden;
 }
 
-.pub-login-card {
+.nem-glow-effect {
+  display: none;
+}
+
+.nem-login-wrapper {
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
+}
+
+/* Floating Clean White Card - No outer double borders */
+.nem-login-card {
   background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.03);
-  border: 1px solid #e2e8f0;
-  padding: 2.5rem 2.25rem;
+  border-radius: 20px;
+  padding: 2.5rem 2.25rem 2.25rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  border: none;
+  transition: all 0.25s ease;
 }
 
-@media (max-width: 580px) {
-  .pub-login-card {
-    padding: 1.75rem 1.5rem;
+@media (max-width: 480px) {
+  .nem-login-page {
+    padding: 1.5rem 1rem;
+  }
+  .nem-login-card {
+    padding: 1.75rem 1.25rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
 }
 
-.pub-login-header {
-  margin-bottom: 2rem;
+/* 1. Header Branding */
+.nem-brand-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-.pub-login-logo {
-  height: 52px;
-  width: auto;
-  margin-bottom: 0.85rem;
-}
-
-.pub-login-header h2 {
-  font-size: 1.65rem;
-  font-weight: 800;
-  color: #800000;
-  margin-bottom: 0.35rem;
-}
-
-.pub-login-header p {
-  font-size: 0.92rem;
-  color: #64748b;
-  margin: 0;
-}
-
-/* User Type Switcher Tabs */
-.pub-login-tabs {
-  display: flex;
-  background: #f1f5f9;
-  border-radius: 10px;
-  padding: 4px;
-  margin-bottom: 1.75rem;
-}
-
-.pub-tab-btn {
-  flex: 1;
+.nem-brand-logo-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 0.65rem 0.5rem;
+}
+
+.nem-brand-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* 2. Nemcare Style 2-Pill Switcher - Clean & Symmetrical */
+.nem-pill-switcher {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  border: none;
+}
+
+.nem-pill-btn {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   border: none;
-  border-radius: 8px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #475569;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: inherit;
-}
-
-.pub-tab-btn.active {
-  background: #ffffff;
-  color: #800000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-/* Login Method Selector Pills */
-.login-method-selector {
-  display: flex;
-  gap: 8px;
-}
-
-.method-pill {
-  flex: 1;
-  padding: 0.45rem;
-  background: #f8fafc;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  font-size: 0.82rem;
+  border-radius: 7px;
+  font-size: 14px;
   font-weight: 600;
-  color: #475569;
+  color: #64748b;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: inherit;
-}
-
-.method-pill.active {
-  background: #fff1f2;
-  border-color: #800000;
-  color: #800000;
-  font-weight: 700;
-}
-
-.w-full {
-  width: 100%;
-}
-
-/* Footer Section */
-.pub-login-footer {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #f1f5f9;
+  outline: none;
   text-align: center;
 }
 
-.pub-reg-prompt span {
-  font-size: 0.88rem;
+.nem-pill-btn:hover:not(.active) {
+  color: #0f172a;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.nem-pill-btn.active {
+  background: #800000;
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* 3. Section Title & Subtitle */
+.nem-title-section {
+  text-align: center;
+  margin-bottom: 1.35rem;
+}
+
+.nem-main-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.nem-main-subtitle {
+  font-size: 12.5px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* 4. Alerts */
+.nem-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  margin-bottom: 1.15rem;
+  line-height: 1.4;
+  border: none;
+}
+
+.nem-alert-danger {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.nem-alert-success {
+  background: #f0fdf4;
+  color: #166534;
+  align-items: flex-start;
+}
+
+.alert-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.success-icon {
+  color: #16a34a;
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.success-content strong {
+  display: block;
+  font-size: 12.5px;
+}
+
+.success-content p {
+  margin: 2px 0 0 0;
+  font-size: 11.5px;
+}
+
+/* 5. Form Controls - Single Crisp 1px Border (No Double Outline) */
+.nem-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.nem-form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.req-star {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.nem-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+/* Input Container - Clean 1px Border */
+.nem-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  transition: border-color 0.2s ease;
+  overflow: hidden;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.nem-input-container:focus-within {
+  border-color: #800000;
+  background: #ffffff;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.nem-form-control {
+  width: 100%;
+  border: none !important;
+  background: transparent;
+  padding: 12px 14px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #0f172a;
+  outline: none !important;
+  box-shadow: none !important;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.nem-form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.nem-form-control::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* Phone Input Group */
+.phone-input-box {
+  display: flex;
+  align-items: stretch;
+}
+
+.nem-country-prefix {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  background: #f1f5f9;
+  border-right: 1px solid #e2e8f0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+  user-select: none;
+  height: auto;
+}
+
+.nem-flag-img {
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.phone-field {
+  padding-left: 12px !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nem-input-hint {
+  display: block;
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 5px;
+}
+
+/* OTP Specific Input */
+.nem-otp-input {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-align: center;
+  color: #800000;
+  padding: 12px 14px !important;
+}
+
+.nem-resend-timer {
+  font-size: 11.5px;
   color: #64748b;
 }
 
-.pub-reg-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.pub-link-highlight {
+.nem-resend-btn {
+  background: none;
+  border: none;
   color: #800000;
+  font-size: 11.5px;
   font-weight: 700;
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  font-family: inherit;
 }
 
-.pub-link-highlight:hover {
-  color: #990000;
+.nem-resend-btn:hover {
   text-decoration: underline;
 }
 
-.admin-portal-link-box {
-  background: #f8fafc;
-  border-radius: 8px;
-  padding: 0.65rem 1rem;
-  border: 1px solid #e2e8f0;
-}
-
-.admin-redirect-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.82rem;
+.nem-change-num-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 12px;
   font-weight: 600;
-  color: #475569;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.admin-redirect-link:hover {
+.nem-change-num-btn:hover {
+  color: #0f172a;
+  text-decoration: underline;
+}
+
+/* 6. Primary Action Button (Clean Solid Crimson, Flat & Modern) */
+.nem-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #800000;
+  color: #ffffff;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.15s ease;
+  box-shadow: none;
+  font-family: inherit;
+  margin-top: 0.75rem;
+  outline: none;
+}
+
+.nem-btn-primary:hover {
+  background: #6c0000;
+}
+
+.nem-btn-primary:active {
+  transform: none;
+}
+
+.nem-btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* 7. Footer Section - No dividing line, clean padding */
+.nem-footer-section {
+  margin-top: 1.5rem;
+  padding-top: 0;
+  border-top: none;
+  text-align: center;
+}
+
+.nem-reg-prompt {
+  font-size: 12.5px;
+  color: #475569;
+  margin: 0;
+}
+
+.nem-reg-link {
   color: #800000;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nem-reg-link:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+  animation: fadeIn 0.35s ease-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
 }

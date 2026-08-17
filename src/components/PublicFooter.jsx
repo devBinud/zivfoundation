@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoZf from '../assets/logo_zf.png';
+import logoZf from '../assets/logo.png';
 import '../styles/footer.css';
 
 const PublicFooter = () => {

@@ -1,5 +1,3 @@
-/* App - Routing & Layout Setup */
-
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Outlet, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -33,12 +31,12 @@ import FlaggedReviews from './admin/pages/FlaggedReviews/FlaggedReviews';
 import OnBehalfCreation from './admin/pages/OnBehalfCreation/OnBehalfCreation';
 import CertificateManagement from './admin/pages/CertificateManagement/CertificateManagement';
 import ViewCertificate from './admin/pages/ViewCertificate/ViewCertificate';
+import DonationHistory from './admin/pages/DonationHistory/DonationHistory';
 import BroadcastPanel from './admin/pages/BroadcastPanel/BroadcastPanel';
 import PushNotifications from './admin/pages/PushNotifications/PushNotifications';
 import SystemSettings from './admin/pages/SystemSettings/SystemSettings';
 import OrgTypeMaster from './admin/pages/OrgTypeMaster/OrgTypeMaster';
 import HelpCenter from './admin/pages/HelpCenter/HelpCenter';
-import DonationHistory from './admin/pages/DonationHistory/DonationHistory';
 
 // Public Layout & Pages
 import PublicLayout from './public/layouts/PublicLayout';
@@ -47,6 +45,8 @@ import PublicAbout from './public/pages/PublicAbout/PublicAbout';
 import PublicContact from './public/pages/PublicContact/PublicContact';
 import PublicRegister from './public/pages/PublicRegister/PublicRegister';
 import PublicLogin from './public/pages/PublicLogin/PublicLogin';
+import PublicEmergencySOS from './public/pages/PublicEmergencySOS/PublicEmergencySOS';
+import PublicBloodBanks from './public/pages/PublicBloodBanks/PublicBloodBanks';
 
 // Protected Route Guard
 const ProtectedRoute = ({ children }) => {
@@ -103,6 +103,9 @@ function App() {
           <Route path="contact" element={<PublicContact />} />
           <Route path="register" element={<PublicRegister />} />
           <Route path="login" element={<PublicLogin />} />
+          <Route path="emergency-request" element={<PublicEmergencySOS />} />
+          <Route path="emergency-sos" element={<PublicEmergencySOS />} />
+          <Route path="blood-banks" element={<PublicBloodBanks />} />
         </Route>
 
         {/* Dedicated Admin Login Route */}

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import logoZf from '../assets/logo_zf.png';
+import logoZf from '../assets/logo.png';
 import Swal from 'sweetalert2';
 
 const Sidebar = ({ isOpen, onClose, theme, setTheme }) => {

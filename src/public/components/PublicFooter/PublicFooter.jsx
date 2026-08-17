@@ -1,75 +1,116 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaArrowUp } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaWhatsapp,
+  FaHeart
+} from 'react-icons/fa';
+import logoZf from '../../../assets/logo.png';
 import './PublicFooter.css';
 
 const PublicFooter = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const location = useLocation();
+  const isAuthPage = location.pathname.includes('/login') || location.pathname.includes('/register');
 
   return (
-    <footer className="eraktkosh-footer">
-      {/* Main Dark Gray Footer */}
-      <div className="main-dark-footer">
-        <div className="footer-content-container">
-          {/* Column 1: Contact */}
-          <div className="dark-footer-col contact-col">
-            <h3 className="dark-col-title">Contact</h3>
-            
-            <div className="contact-item">
-              <span className="contact-label">Address:</span>
-              <p className="contact-value">
-                C-56/1, Anusandhan Bhawan, Sector-62, Noida, Uttar Pradesh-201307
-              </p>
-            </div>
+    <footer className="std-full-footer-wrapper">
+      {/* Standard Minimalist White Footer Grid */}
+      <div className="std-white-footer-section">
+        <div className="std-footer-container">
 
-            <div className="contact-item">
-              <span className="contact-label">Contact Number</span>
-              <p className="contact-value">+91-9650816031</p>
-            </div>
-
-            <div className="contact-item">
-              <span className="contact-label">Email</span>
-              <p className="contact-value">eraktkosh@cdac.in</p>
-            </div>
-
-            <div className="contact-item">
-              <span className="contact-label">For Administrative queries</span>
-              <p className="contact-value">
-                Blood Cell, National Health Mission Ministry of Health & Family Welfare, New Delhi-110011
-              </p>
-            </div>
+          {/* Column 1: Brand */}
+          <div className="std-f-col std-f-brand-col">
+            <Link to="/" className="std-f-brand-link">
+              <img src={logoZf} alt="Ziv Foundation" className="std-f-logo-img" />
+            </Link>
           </div>
 
-          {/* Column 2: Important Links */}
-          <div className="dark-footer-col links-col">
-            <h3 className="dark-col-title">Important Links</h3>
-            <ul className="dark-footer-links">
-              <li><Link to="/">Search Blood Availability</Link></li>
-              <li><Link to="/">Search Blood Center Directory</Link></li>
-              <li><Link to="/">Search Blood Donation Camp</Link></li>
-              <li><Link to="/admin/login">Blood Center Login</Link></li>
-              <li><Link to="/register?role=donor&mode=login">Donor Login</Link></li>
+          {/* Column 2: Our Services */}
+          <div className="std-f-col">
+            <h4 className="std-f-col-title">Our Services</h4>
+            <ul className="std-f-links">
+              <li><Link to="/blood-banks">Search Blood Donors</Link></li>
+              <li><Link to="/emergency-request">Emergency SOS Broadcast</Link></li>
+              <li><Link to="/register?role=donor">Donate Blood Online</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Policies */}
-          <div className="dark-footer-col policies-col">
-            <h3 className="dark-col-title">Policies</h3>
-            <ul className="dark-footer-links">
-              <li><a href="#terms">Terms & Conditions</a></li>
-              <li><a href="#privacy">Privacy Policy</a></li>
-              <li><a href="#accessibility">Accessibility Statement</a></li>
+          {/* Column 3: About Us */}
+          <div className="std-f-col">
+            <h4 className="std-f-col-title">About Us</h4>
+            <ul className="std-f-links">
+              <li><Link to="/about">Donor Safety & Eligibility</Link></li>
+              <li><Link to="/contact">NGO Accreditation Desk</Link></li>
+              <li><Link to="/admin/login">Admin & Coordinator Portal</Link></li>
             </ul>
+          </div>
+
+          {/* Column 4: Contact & Jorhat Headquarters */}
+          <div className="std-f-col std-f-contact-col">
+            <a href="mailto:support@zivfoundation.org" className="std-f-direct-link">
+              support@zivfoundation.org
+            </a>
+            <p className="std-f-contact-sub">
+              Chandan Nagar, Jorhat, Assam - 785001
+            </p>
+            <p className="std-f-contact-sub">
+              Helpline: +91 94350 12345
+            </p>
+          </div>
+
+        </div>
+
+        {/* 3. Bottom Legal & Social Row */}
+        <div className="std-f-bottom-divider"></div>
+        <div className="std-footer-container std-f-bottom-row">
+          <p className="std-f-copyright">
+            Copyright ©{new Date().getFullYear()} Ziv Foundation. All Rights Reserved.
+          </p>
+
+          <div className="std-f-social-group">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="std-f-social-icon"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="std-f-social-icon"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="std-f-social-icon"
+            >
+              <FaYoutube />
+            </a>
+            <a
+              href="https://api.whatsapp.com/send?phone=919435012345"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="std-f-social-icon"
+            >
+              <FaWhatsapp />
+            </a>
           </div>
         </div>
 
-        {/* Scroll To Top Circle Button on Bottom Right */}
-        <button className="footer-scroll-top-btn" onClick={scrollToTop} aria-label="Scroll to Top">
-          <FaArrowUp />
-        </button>
       </div>
+
     </footer>
   );
 };

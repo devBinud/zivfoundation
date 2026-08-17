@@ -1,196 +1,239 @@
 /* ============================================================
-   Header & Navigation Bar Styles - Modern Clean Navbar
-   Matching binudsoftwaresolutions.in Reference Aesthetic
+   Practo-Style Modern Sticky Navbar
+   Clean white aesthetic, active red indicator bar, NEW badge & Login/Signup
    ============================================================ */
 
-.rakt-header-wrapper {
+.practo-header-wrapper {
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 10000;
   font-family: 'Source Sans 3', -apple-system, sans-serif;
   background: #ffffff !important;
   border-bottom: 1px solid #f1f5f9;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  padding: 0.85rem 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.simple-navbar-container {
+/* Scrolled Sticky Glassmorphism State */
+.practo-header-wrapper.is-scrolled {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.practo-navbar-container {
   max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
+  height: 100%;
 }
 
-/* Brand Logo & Name */
-.portal-brand-item {
+/* Left Brand & Navigation */
+.practo-nav-left {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 2.25rem;
+  height: 100%;
+}
+
+.practo-brand-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   text-decoration: none;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.practo-brand-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.practo-brand-name {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--heading-color, #2d2d32);
+  letter-spacing: -0.04em;
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+}
+
+.practo-primary-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  height: 100%;
+}
+
+.practo-tab-link {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 4px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #475569;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.18s ease;
+  white-space: nowrap;
+}
+
+.practo-tab-link:hover {
+  color: #b91c1c;
+}
+
+.practo-tab-link.active {
+  color: #b91c1c !important;
+  font-weight: 600 !important;
+  font-size: 14.5px !important;
+}
+
+.practo-tab-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #b91c1c;
+  border-radius: 3px 3px 0 0;
+}
+
+/* Right Navigation Links */
+.practo-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
   flex-shrink: 0;
 }
 
-.portal-logo-img {
-  height: 42px;
-  width: auto;
-  object-fit: contain;
-}
-
-.portal-title-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.portal-name {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -0.02em;
-}
-
-/* Desktop Nav Links */
-.desktop-nav-menu {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 0.35rem;
-}
-
-.nav-item-cell {
+.practo-dropdown-item {
   position: relative;
-  display: flex;
-  align-items: center;
 }
 
-.simple-nav-link {
+.practo-dropdown-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem 0.85rem;
-  color: #334155 !important;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  background: transparent !important;
+  gap: 6px;
+  background: transparent;
   border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
   cursor: pointer;
+  padding: 8px 4px;
+  font-family: inherit;
   transition: color 0.18s ease;
-  font-family: 'Source Sans 3', sans-serif;
 }
 
-.simple-nav-link:hover {
-  color: #b91c1c !important;
-  background: transparent !important;
+.practo-dropdown-btn:hover {
+  color: #0f172a;
 }
 
-.simple-nav-link.active {
-  color: #b91c1c !important;
-  background: transparent !important;
-  font-weight: 700;
+.practo-new-badge {
+  background: #1e1b4b;
+  color: #ffffff;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
-.dropdown-parent.open > .simple-nav-link {
-  color: #b91c1c !important;
-  background: transparent !important;
-}
-
-.caret-icon {
+.practo-caret {
+  color: #94a3b8;
   transition: transform 0.2s ease;
-  margin-left: 2px;
-  opacity: 0.7;
 }
 
-.dropdown-parent.open .caret-icon {
+.practo-dropdown-item.open .practo-caret,
+.practo-dropdown-item:hover .practo-caret {
   transform: rotate(180deg);
 }
 
-/* Dropdown Menu Box */
-.dropdown-menu-box {
+/* Dropdown Menu */
+.practo-dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
+  top: calc(100% + 6px);
+  right: 0;
   background: #ffffff;
-  min-width: 235px;
+  min-width: 210px;
   border-radius: 8px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
-  padding: 0;
+  padding: 6px 0;
   opacity: 0;
   visibility: hidden;
+  transform: translateY(6px);
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-  transform: translateY(8px);
   z-index: 1001;
-  overflow: hidden;
 }
 
-.dropdown-menu-box.right-aligned {
-  left: auto;
-  right: 0;
-}
-
-.dropdown-parent.open .dropdown-menu-box,
-.dropdown-parent:hover .dropdown-menu-box {
+.practo-dropdown-item.open .practo-dropdown-menu,
+.practo-dropdown-item:hover .practo-dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.dropdown-menu-item {
+.practo-menu-link {
   display: block;
-  padding: 0.75rem 1.25rem;
-  color: #1e293b !important;
-  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 13px;
   font-weight: 600;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  color: #1e293b;
+  text-decoration: none;
+  transition: all 0.15s ease;
 }
 
-.dropdown-menu-item:hover {
-  background: #fff1f2 !important;
-  color: #b91c1c !important;
+.practo-menu-link:hover {
+  background: #fff1f2;
+  color: #b91c1c;
 }
 
-/* Right Utilities Group (Contact Us Button & Mobile Toggle) */
-.navbar-right-utilities {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-shrink: 0;
-}
-
-.navbar-cta-btn {
+/* Login / Signup Button */
+.practo-auth-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.62rem 1.45rem;
-  background: #b91c1c;
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-  color: #ffffff !important;
-  font-weight: 700;
-  font-size: 0.9rem;
+  padding: 6px 16px;
+  border: 1.5px solid #cbd5e1;
   border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
   text-decoration: none;
+  background: #ffffff;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 14px rgba(185, 28, 28, 0.28);
   white-space: nowrap;
 }
 
-.navbar-cta-btn:hover {
-  background: #991b1b;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(153, 27, 27, 0.38);
+.practo-auth-btn:hover {
+  border-color: #b91c1c;
+  color: #b91c1c;
+  background: #fff1f2;
+  box-shadow: 0 2px 8px rgba(185, 28, 28, 0.15);
 }
 
-.rakt-mobile-toggle-btn {
+/* Mobile Toggle */
+.practo-mobile-toggle {
   display: none;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -198,120 +241,265 @@
   color: #0f172a;
   cursor: pointer;
   padding: 0.5rem;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.rakt-mobile-toggle-btn:hover {
-  background: #f1f5f9;
+.practo-mobile-toggle:hover,
+.practo-mobile-toggle.active {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fecdd3;
 }
 
-/* Mobile Drawer Menu */
-.mobile-nav-drawer {
+/* Backdrop Overlay */
+.practo-mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  top: 64px;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.practo-mobile-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile Drawer */
+.practo-mobile-drawer {
   display: none;
 }
 
 @media (max-width: 992px) {
-  .simple-navbar-container {
+  .practo-header-wrapper {
+    height: 60px;
+  }
+
+  .practo-navbar-container {
     padding: 0 1.25rem;
   }
 
-  .portal-name {
-    font-size: 1.15rem;
-  }
-
-  .portal-logo-img {
-    height: 36px;
-  }
-
-  .desktop-nav-menu {
+  .practo-primary-links {
     display: none;
   }
 
-  .navbar-cta-btn {
+  .practo-dropdown-item {
     display: none;
   }
 
-  .rakt-mobile-toggle-btn {
+  .practo-auth-btn {
+    display: none;
+  }
+
+  .practo-mobile-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .mobile-nav-drawer {
+  .practo-mobile-drawer {
     display: block;
     position: fixed;
-    top: 65px;
+    top: 60px;
     left: 0;
     right: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease, opacity 0.3s ease;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
     background: #ffffff;
     opacity: 0;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    border-radius: 0 0 16px 16px;
-    z-index: 1002;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 18px 18px;
+    z-index: 10001;
   }
 
-  .mobile-nav-drawer.open {
-    max-height: 500px;
+  .practo-mobile-drawer.open {
+    max-height: calc(100vh - 75px);
     opacity: 1;
     overflow-y: auto;
   }
 
-  .mobile-drawer-content {
-    padding: 1.25rem 1.5rem 1.5rem 1.5rem;
-  }
-
-  .mobile-menu-list {
+  .practo-drawer-content {
+    padding: 1.25rem 1.25rem 1.75rem 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 
-  .mobile-nav-link {
-    display: block;
-    padding: 0.6rem 0;
-    font-weight: 700;
-    color: #0f172a;
+  /* Mobile Emergency Banner */
+  .mobile-emergency-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
+    border-radius: 12px;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 1rem;
+    box-shadow: 0 4px 14px rgba(185, 28, 28, 0.25);
+    margin-bottom: 0.5rem;
+    transition: transform 0.18s ease;
   }
 
-  .mobile-accordion-item {
-    border-bottom: 1px solid #f1f5f9;
+  .mobile-emergency-banner:active {
+    transform: scale(0.98);
   }
 
-  .mobile-accordion-trigger {
+  .banner-icon-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .banner-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner-text strong {
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .banner-text span {
+    font-size: 11px;
+    opacity: 0.9;
+    font-weight: 500;
+  }
+
+  /* Navigation Links Group */
+  .mobile-nav-links-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .practo-mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    font-weight: 600;
+    color: #1e293b;
+    text-decoration: none;
+    font-size: 14.5px;
+    border-radius: 10px;
+    transition: all 0.18s ease;
+  }
+
+  .practo-mobile-link .m-link-icon {
+    font-size: 14px;
+    color: #64748b;
+    transition: color 0.18s ease;
+  }
+
+  .practo-mobile-link:hover,
+  .practo-mobile-link.active {
+    background: #fff1f2;
+    color: #b91c1c;
+  }
+
+  .practo-mobile-link:hover .m-link-icon,
+  .practo-mobile-link.active .m-link-icon {
+    color: #b91c1c;
+  }
+
+  /* Accordions */
+  .practo-mobile-accordion {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 0.35rem;
+  }
+
+  .practo-acc-trigger {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.6rem 0;
+    padding: 10px 14px;
     background: none;
     border: none;
     font-weight: 700;
-    font-size: 1rem;
-    color: #0f172a;
+    font-size: 14px;
+    color: #1e293b;
     cursor: pointer;
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: inherit;
+    border-radius: 8px;
+    transition: background 0.18s ease;
   }
 
-  .mobile-accordion-body {
-    padding: 0.25rem 0 0.75rem 0.75rem;
+  .practo-acc-trigger:hover {
+    background: #f8fafc;
+  }
+
+  .acc-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .m-acc-icon {
+    color: #64748b;
+    font-size: 13px;
+  }
+
+  .practo-acc-body {
+    padding: 0.25rem 0 0.5rem 2.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
 
-  .mobile-accordion-body a {
+  .practo-acc-body a {
     color: #475569;
     text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 500;
+    font-size: 13.5px;
+    font-weight: 600;
+    transition: color 0.18s ease;
   }
 
-  .mobile-portal-login-cta {
-    margin-top: 1rem;
+  .practo-acc-body a:hover {
+    color: #b91c1c;
+  }
+
+  /* Auth Button */
+  .practo-mobile-auth-wrapper {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .practo-mobile-auth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.85rem;
+    background: #b91c1c;
+    color: #ffffff !important;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 14.5px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(185, 28, 28, 0.25);
+    transition: all 0.2s ease;
+  }
+
+  .practo-mobile-auth-btn:hover {
+    background: #991b1b;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(185, 28, 28, 0.35);
   }
 }
+

@@ -6,6 +6,10 @@
   --font-heading: 'Source Sans 3', 'Outfit', sans-serif;
   --font-source: 'Source Sans 3', sans-serif;
 
+  /* Global Heading Color */
+  --heading-color: #2d2d32;
+  --text-heading: #2d2d32;
+
   /* HSL Colors */
   --primary-h: 352;
   --primary-s: 84%;
@@ -62,10 +66,10 @@ body {
 
 
 
-/* Typography */
+/* Typography - Global Heading Color #2d2d32 */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: var(--text-primary);
+  color: var(--heading-color);
   font-weight: 600;
   line-height: 1.25;
 }

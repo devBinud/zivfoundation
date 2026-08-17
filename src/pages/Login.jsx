@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import loginBg from '../assets/bg/login_bg.png';
-import logoZf from '../assets/logo_zf.png';
+import logoZf from '../assets/logo.png';
 
 const Login = () => {
   const { login, isAuthenticated, error: authError } = useAuth();
