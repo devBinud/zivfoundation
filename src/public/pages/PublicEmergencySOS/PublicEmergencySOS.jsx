@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaAmbulance,
@@ -16,7 +16,8 @@ import {
   FaFileUpload,
   FaShieldAlt,
   FaHeartbeat,
-  FaUsers
+  FaUsers,
+  FaChevronDown
 } from 'react-icons/fa';
 import './PublicEmergencySOS.css';
 
@@ -60,6 +61,64 @@ const ASSAM_DISTRICTS = [
 
 const BLOOD_GROUPS = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
 
+/* Custom Modern Rounded Dropdown Component */
+const CustomSelect = ({ id, value, onChange, options, placeholder = 'Select option', className = '' }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find((opt) => (typeof opt === 'object' ? opt.value === value : opt === value));
+  const displayLabel = selectedOption ? (typeof selectedOption === 'object' ? selectedOption.label : selectedOption) : placeholder;
+
+  return (
+    <div className={`custom-sos-dropdown ${className} ${isOpen ? 'is-open' : ''}`} ref={dropdownRef}>
+      <button
+        type="button"
+        id={id}
+        className="custom-dropdown-trigger"
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+      >
+        <span className="trigger-value">{displayLabel}</span>
+        <FaChevronDown className={`trigger-chevron ${isOpen ? 'open' : ''}`} />
+      </button>
+
+      {isOpen && (
+        <div className="custom-dropdown-menu">
+          {options.map((opt) => {
+            const optVal = typeof opt === 'object' ? opt.value : opt;
+            const optLabel = typeof opt === 'object' ? opt.label : opt;
+            const isSelected = optVal === value;
+
+            return (
+              <div
+                key={optVal}
+                className={`custom-dropdown-option ${isSelected ? 'selected' : ''}`}
+                onClick={() => {
+                  onChange(optVal);
+                  setIsOpen(false);
+                }}
+              >
+                <span>{optLabel}</span>
+                {isSelected && <span className="selected-check">✓</span>}
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const PublicEmergencySOS = () => {
   const [formData, setFormData] = useState({
     patientName: '',
@@ -67,9 +126,11 @@ const PublicEmergencySOS = () => {
     gender: 'Male',
     bloodGroup: 'B+',
     unitsRequired: 1,
+    urgencyLevel: 'Immediate (< 2 Hours)',
     hospitalName: '',
     district: 'Jorhat',
     hospitalWard: '',
+    reason: 'Emergency Surgery',
     contactName: '',
     contactPhone: '',
     urgencyReason: 'Accident / Trauma',
@@ -82,6 +143,13 @@ const PublicEmergencySOS = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSelectChange = (name, value) => {
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -136,11 +204,6 @@ const PublicEmergencySOS = () => {
       {/* 1. Top Urgent Hero Section */}
       <section className="emergency-hero-banner">
         <div className="emergency-hero-container">
-          <div className="emergency-alert-pill">
-            <span className="live-sos-beacon"></span>
-            <span>24/7 DISTRICT BLOOD BROADCAST ACTIVE</span>
-          </div>
-
           <h1 className="emergency-hero-title">
             Emergency Blood SOS Broadcast
           </h1>
@@ -165,7 +228,7 @@ const PublicEmergencySOS = () => {
 
       {/* 2. Main Content Grid */}
       <div className="emergency-main-container">
-        
+
         {/* If SOS Submitted: Show Confirmation Hub */}
         {submittedSos ? (
           <div className="sos-success-hub">
@@ -254,24 +317,19 @@ const PublicEmergencySOS = () => {
               </div>
 
               <form onSubmit={handleSubmit} className="emergency-form">
-                
-                {/* Blood Group Selection Grid */}
-                <div className="form-section-block">
-                  <label className="section-label">
-                    <FaTint className="label-icon" /> Select Required Blood Group *
+
+                {/* Blood Group Dropdown */}
+                <div className="form-group" style={{ marginBottom: '1.25rem' }}>
+                  <label htmlFor="bloodGroup">
+                    <FaTint className="label-icon-inline" /> Select Required Blood Group *
                   </label>
-                  <div className="blood-group-selector">
-                    {BLOOD_GROUPS.map((group) => (
-                      <button
-                        key={group}
-                        type="button"
-                        className={`blood-select-pill ${formData.bloodGroup === group ? 'selected' : ''}`}
-                        onClick={() => handleBloodSelect(group)}
-                      >
-                        {group}
-                      </button>
-                    ))}
-                  </div>
+                  <CustomSelect
+                    id="bloodGroup"
+                    value={formData.bloodGroup}
+                    onChange={(val) => handleSelectChange('bloodGroup', val)}
+                    options={BLOOD_GROUPS}
+                    placeholder="Select blood group"
+                  />
                 </div>
 
                 {/* Patient Info Row */}
@@ -308,17 +366,12 @@ const PublicEmergencySOS = () => {
                     </div>
                     <div className="form-group">
                       <label htmlFor="gender">Gender</label>
-                      <select
+                      <CustomSelect
                         id="gender"
-                        name="gender"
                         value={formData.gender}
-                        onChange={handleInputChange}
-                        className="sos-select"
-                      >
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                      </select>
+                        onChange={(val) => handleSelectChange('gender', val)}
+                        options={['Male', 'Female', 'Other']}
+                      />
                     </div>
                   </div>
                 </div>
@@ -342,17 +395,17 @@ const PublicEmergencySOS = () => {
 
                   <div className="form-group">
                     <label htmlFor="urgencyLevel">Urgency Level *</label>
-                    <select
+                    <CustomSelect
                       id="urgencyLevel"
-                      name="urgencyLevel"
                       value={formData.urgencyLevel}
-                      onChange={handleInputChange}
-                      className="sos-select urgency-select"
-                    >
-                      <option value="Immediate (< 2 Hours)">🚨 Immediate (Under 2 Hours)</option>
-                      <option value="Urgent (2 - 6 Hours)">⚠️ Urgent (2 - 6 Hours)</option>
-                      <option value="Within 24 Hours">🕒 Within 24 Hours</option>
-                    </select>
+                      onChange={(val) => handleSelectChange('urgencyLevel', val)}
+                      className="urgency-dropdown"
+                      options={[
+                        { value: 'Immediate (< 2 Hours)', label: '🚨 Immediate (Under 2 Hours)' },
+                        { value: 'Urgent (2 - 6 Hours)', label: '⚠️ Urgent (2 - 6 Hours)' },
+                        { value: 'Within 24 Hours', label: '🕒 Within 24 Hours' }
+                      ]}
+                    />
                   </div>
                 </div>
 
@@ -378,17 +431,12 @@ const PublicEmergencySOS = () => {
                     <label htmlFor="district">
                       <FaMapMarkerAlt className="label-icon-inline" /> District in Assam *
                     </label>
-                    <select
+                    <CustomSelect
                       id="district"
-                      name="district"
                       value={formData.district}
-                      onChange={handleInputChange}
-                      className="sos-select"
-                    >
-                      {ASSAM_DISTRICTS.map((d) => (
-                        <option key={d} value={d}>{d}</option>
-                      ))}
-                    </select>
+                      onChange={(val) => handleSelectChange('district', val)}
+                      options={ASSAM_DISTRICTS}
+                    />
                   </div>
                 </div>
 
@@ -409,21 +457,20 @@ const PublicEmergencySOS = () => {
 
                   <div className="form-group">
                     <label htmlFor="reason">Reason / Medical Diagnosis</label>
-                    <select
+                    <CustomSelect
                       id="reason"
-                      name="reason"
                       value={formData.reason}
-                      onChange={handleInputChange}
-                      className="sos-select"
-                    >
-                      <option value="Emergency Surgery">Emergency Surgery</option>
-                      <option value="Accident / Trauma">Accident / Road Trauma</option>
-                      <option value="Thalassemia Major">Thalassemia Transfusion</option>
-                      <option value="Delivery / C-Section">Delivery / Obstetrics</option>
-                      <option value="Chemotherapy / Oncology">Chemotherapy / Cancer</option>
-                      <option value="Dengue Platelet Drop">Dengue / Platelet Deficiency</option>
-                      <option value="Other Medical Emergency">Other Medical Emergency</option>
-                    </select>
+                      onChange={(val) => handleSelectChange('reason', val)}
+                      options={[
+                        'Emergency Surgery',
+                        'Accident / Road Trauma',
+                        'Thalassemia Transfusion',
+                        'Delivery / Obstetrics',
+                        'Chemotherapy / Cancer',
+                        'Dengue / Platelet Deficiency',
+                        'Other Medical Emergency'
+                      ]}
+                    />
                   </div>
                 </div>
 
@@ -489,13 +536,9 @@ const PublicEmergencySOS = () => {
                     className="sos-dispatch-btn"
                   >
                     <FaAmbulance className="btn-icon" />
-                    {loading ? 'Dispatched Alerts...' : 'BROADCAST EMERGENCY SOS NOW'}
+                    {loading ? 'Dispatching SOS Alerts...' : 'Broadcast Emergency SOS'}
                   </button>
-                  <span className="form-security-note">
-                    🔒 No charges are ever requested. Ziv is a 100% voluntary non-profit emergency service.
-                  </span>
                 </div>
-
               </form>
             </div>
           </div>

@@ -97,20 +97,6 @@ const PublicAbout = () => {
           </div>
         </div>
       </section>
-
-      <section className="section-container">
-        <div className="cta-banner">
-          <h2 className="cta-title">Need to verify a Ziv Foundation Certificate?</h2>
-          <p className="cta-text">
-            Enter any certificate ID in our verification engine or log into the admin portal to manage honors.
-          </p>
-          <div className="flex-center gap-3">
-            <Link to="/contact" className="btn btn-primary btn-hero-lg">
-              Contact Verification Desk
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

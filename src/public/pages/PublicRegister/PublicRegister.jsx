@@ -2,7 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { api } from '../../../services/api';
 import Swal from 'sweetalert2';
-import { FaUser, FaTint, FaCheck, FaUpload, FaPhoneAlt, FaCheckCircle, FaUserPlus, FaSignInAlt } from 'react-icons/fa';
+import {
+  FaUser,
+  FaTint,
+  FaCheck,
+  FaUpload,
+  FaPhoneAlt,
+  FaCheckCircle,
+  FaUserPlus,
+  FaSignInAlt,
+  FaArrowLeft,
+  FaMapMarkerAlt,
+  FaHeartbeat,
+  FaClipboardCheck,
+  FaShieldAlt,
+  FaMobileAlt
+} from 'react-icons/fa';
 import indiaFlag from '../../../assets/icons/india.png';
 import './PublicRegister.css';
 
@@ -127,17 +142,11 @@ const PublicRegister = () => {
         title: 'Logged In Successfully!',
         text: `Mobile number +91 ${userForm.phone} is already registered. Welcome back!`,
         icon: 'success',
-        confirmButtonColor: '#800000'
+        confirmButtonColor: '#b91c1c'
       });
       navigate('/');
     } else {
       setIsExistingUser(false);
-      Swal.fire({
-        title: 'Mobile Verified!',
-        text: 'You are a new user. Please complete your registration details to continue.',
-        icon: 'success',
-        confirmButtonColor: '#800000'
-      });
       setStep(2);
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
@@ -228,20 +237,15 @@ const PublicRegister = () => {
         await api.users.createOnBehalf(payload);
       }
 
-      Swal.fire({
-        title: 'Registration Successful!',
-        text: `Your ${role === 'donor' ? 'Blood Donor' : 'Blood Requestor'} profile has been created successfully.`,
-        icon: 'success',
-        confirmButtonColor: '#800000'
-      });
       setLoading(false);
       setStep(6);
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     } catch (err) {
       Swal.fire({
         title: 'Registration Error',
         text: err.message || 'Registration failed. Please check your information and try again.',
         icon: 'error',
-        confirmButtonColor: '#800000'
+        confirmButtonColor: '#b91c1c'
       });
       setLoading(false);
     }
@@ -267,11 +271,49 @@ const PublicRegister = () => {
 
       <div className="public-register-container">
         <div className="public-register-card">
-        <div className="pub-wizard-body">
-          {error && <div className="pub-alert pub-alert-danger mb-4">{error}</div>}
+          {/* Step Progress Bar Wizard Header with Continuous Track Line */}
+          {step <= 5 && (
+            <div className="pub-wizard-stepper-header">
+              <div className="pub-wizard-steps">
+                {/* Continuous background track line behind all dots */}
+                <div className="pub-wizard-track-line" />
+                {/* Continuous active progress track line */}
+                <div
+                  className="pub-wizard-track-progress"
+                  style={{ width: `${((step - 1) / 4) * 80}%` }}
+                />
 
-          {/* STEP 1: MOBILE & OTP VERIFICATION FLOW */}
-          {step === 1 && (
+                {[
+                  { num: 1, label: 'Mobile & OTP' },
+                  { num: 2, label: 'Personal Info' },
+                  { num: 3, label: 'Location' },
+                  { num: 4, label: role === 'donor' ? 'Eligibility' : 'Documents' },
+                  { num: 5, label: 'Review & Submit' }
+                ].map((item) => {
+                  const isCompleted = step > item.num;
+                  const isActive = step === item.num;
+
+                  return (
+                    <div
+                      key={item.num}
+                      className={`pub-step-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}`}
+                    >
+                      <div className={`pub-step-dot ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}`}>
+                        {isCompleted ? <FaCheck size={11} /> : item.num}
+                      </div>
+                      <span className="pub-step-label">{item.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          <div className="pub-wizard-body">
+            {error && <div className="pub-alert pub-alert-danger mb-4">{error}</div>}
+
+            {/* STEP 1: MOBILE & OTP VERIFICATION FLOW */}
+            {step === 1 && (
             <div className="pub-step-content animate-fade max-w-md mx-auto">
               <h3 className="pub-subheading mb-4 text-center">Mobile Number & OTP Authentication</h3>
               <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '1.25rem', textAlign: 'center' }}>

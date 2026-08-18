@@ -1,14 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  FaSearch,
-  FaHospitalAlt,
-  FaHeart,
-  FaAmbulance,
   FaShieldAlt,
   FaFileAlt,
-  FaRegCommentDots,
-  FaArrowRight
+  FaRegCommentDots
 } from 'react-icons/fa';
 import practoHeroImg from '../../../assets/bg/homepage-hero-image-web-v1.png';
 import donorCardImg from '../../../assets/sections/donor.jpg';
@@ -147,33 +141,36 @@ const PublicHome = () => {
             <h2 className="services-section-title">
               Everything You Need in One Life-Saving Network
             </h2>
-            <p className="services-section-sub">
-              Fast, transparent, and certified voluntary blood assistance connecting donors, patients, and hospitals.
-            </p>
           </div>
 
-          {/* 4 Cards Grid (Health City Hospital Reference Style) */}
+          {/* 4 Cards Grid */}
           <div className="hc-services-grid">
             {services.map((svc) => (
-              <div key={svc.id} className="hc-service-card">
+              <Link key={svc.id} to={svc.link} className="hc-service-card">
                 {/* Top Image Banner */}
+
                 <div className="hc-card-img-wrap">
-                  <img src={svc.image} alt={svc.title} className="hc-card-img" />
+                  <img
+                    src={svc.image}
+                    alt={svc.title}
+                    className="hc-card-img"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = donorCardImg;
+                    }}
+                  />
                 </div>
 
                 {/* Card Body */}
                 <div className="hc-card-body">
                   <h3 className="hc-card-title">{svc.title}</h3>
                   <p className="hc-card-desc">{svc.desc}</p>
-                  
-                  <div className="hc-card-footer">
-                    <Link to={svc.link} className="hc-card-link">
-                      <span>Read More</span>
-                      <FaArrowRight className="hc-arrow" />
-                    </Link>
+
+                  <div className="hc-card-action">
+                    <span className="hc-outline-btn">{svc.btnText}</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 

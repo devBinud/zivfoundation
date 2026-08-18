@@ -16,7 +16,6 @@ import {
   FaCalendarAlt,
   FaUserCheck,
   FaHeart,
-  FaUserCircle
 } from 'react-icons/fa';
 import './PublicBloodBanks.css';
 
@@ -440,15 +439,10 @@ const PublicBloodBanks = () => {
 
   return (
     <div className="premium-donors-page">
-      
+
       {/* 1. Header Banner */}
       <section className="p-header-section">
         <div className="p-header-container">
-          <div className="p-badge-pill">
-            <span className="live-dot"></span>
-            <span>VOLUNTARY LIFESAVER NETWORK · ASSAM</span>
-          </div>
-
           <h1 className="p-main-title">Verified Blood Donors Directory</h1>
           <p className="p-main-sub">
             Directly connect with certified, active voluntary blood donors across Jorhat and Assam ready for emergency and scheduled transfusions.
@@ -457,50 +451,52 @@ const PublicBloodBanks = () => {
           {/* Search & Filter Card */}
           <div className="p-filter-card">
             <div className="p-search-row">
+              {/* Search text input */}
               <div className="p-input-box">
                 <FaSearch className="p-icon" />
                 <input
                   type="text"
-                  placeholder="Search donor name, area, hospital, or blood group..."
+                  placeholder="Search donor name, area, hospital..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   className="p-text-input"
                 />
                 {search && (
-                  <button type="button" onClick={() => setSearch('')} className="p-clear-btn">
+                  <button type="button" onClick={() => setSearch('')} className="p-clear-btn" aria-label="Clear Search">
                     <FaTimes />
                   </button>
                 )}
               </div>
 
-              <div className="p-district-box">
-                <FaMapMarkerAlt className="p-loc-icon" />
+              {/* Blood Group Dropdown */}
+              <div className="p-filter-select-box">
+                <FaTint className="p-filter-select-icon" />
+                <select
+                  value={selectedGroup}
+                  onChange={(e) => setSelectedGroup(e.target.value)}
+                  className="p-select"
+                  aria-label="Filter by Blood Group"
+                >
+                  <option value="All">All Blood Groups</option>
+                  {BLOOD_GROUPS.filter((g) => g !== 'All').map((grp) => (
+                    <option key={grp} value={grp}>{grp}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* District Dropdown */}
+              <div className="p-filter-select-box">
+                <FaMapMarkerAlt className="p-filter-select-icon" />
                 <select
                   value={district}
                   onChange={(e) => setDistrict(e.target.value)}
                   className="p-select"
+                  aria-label="Filter by District"
                 >
                   {DISTRICTS.map((d) => (
                     <option key={d} value={d}>{d}</option>
                   ))}
                 </select>
-              </div>
-            </div>
-
-            {/* Blood Group Filter Pills */}
-            <div className="p-blood-filter-row">
-              <span className="p-filter-label">Filter by Blood Group:</span>
-              <div className="p-pills-wrap">
-                {BLOOD_GROUPS.map((grp) => (
-                  <button
-                    key={grp}
-                    type="button"
-                    className={`p-blood-pill ${selectedGroup === grp ? 'active' : ''}`}
-                    onClick={() => setSelectedGroup(grp)}
-                  >
-                    {grp === 'All' ? 'All Groups' : grp}
-                  </button>
-                ))}
               </div>
             </div>
           </div>
@@ -510,7 +506,7 @@ const PublicBloodBanks = () => {
 
       {/* 2. Main Donors Table Section */}
       <div className="p-table-container">
-        
+
         {/* Table Top Bar */}
         <div className="p-table-top-bar">
           <div className="p-entries-selector">
@@ -538,8 +534,8 @@ const PublicBloodBanks = () => {
           </div>
         </div>
 
-        {/* Elevated Table Card */}
-        <div className="p-table-card">
+        {/* Clean Table Card (Desktop / Tablet) */}
+        <div className="p-table-card desktop-table-view">
           <div className="p-table-responsive">
             <table className="p-donors-table">
               <thead>
@@ -547,9 +543,8 @@ const PublicBloodBanks = () => {
                   <th className="th-donor">Donor Profile</th>
                   <th className="th-blood">Blood Group</th>
                   <th className="th-location">Location & Area</th>
-                  <th className="th-donations">Donations</th>
-                  <th className="th-status">Live Status</th>
-                  <th className="th-actions text-right">Direct Action</th>
+                  <th className="th-status">Availability</th>
+                  <th className="th-actions text-right">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -559,96 +554,59 @@ const PublicBloodBanks = () => {
                     className="p-table-row"
                     onClick={() => setActiveDonor(donor)}
                   >
-                    {/* Donor Column: Avatar + Name + Verified Badge + Honor Tag */}
+                    {/* Donor Profile */}
                     <td className="td-donor">
-                      <div className="p-donor-profile-cell">
-                        <div className="p-avatar-circle">
-                          {donor.initials}
+                      <div className="p-donor-simple-info">
+                        <div className="p-donor-name-row">
+                          <span className="p-donor-name">{donor.name}</span>
+                          <FaCheckCircle className="p-check-icon" title="Verified Voluntary Lifesaver" />
                         </div>
-                        <div className="p-donor-meta">
-                          <div className="p-donor-name-row">
-                            <span className="p-donor-name">{donor.name}</span>
-                            <FaCheckCircle className="p-check-icon" title="Verified Voluntary Lifesaver" />
-                          </div>
-                          <span className={`p-honor-tag ${donor.badgeType}`}>
-                            <FaAward className="p-honor-icon" /> {donor.donorBadge}
-                          </span>
-                        </div>
+                        <span className="p-donor-subtext">
+                          {donor.age} yrs · {donor.gender} · {donor.totalDonations} donations
+                        </span>
                       </div>
                     </td>
 
-                    {/* Blood Group Pill */}
+                    {/* Blood Group */}
                     <td className="td-blood">
-                      <div className="p-blood-badge">
-                        <FaTint className="p-tint" />
-                        <span>{donor.bloodGroup}</span>
-                      </div>
+                      <span className="p-blood-text-simple">{donor.bloodGroup}</span>
                     </td>
 
                     {/* Location */}
                     <td className="td-location">
-                      <div className="p-location-cell">
-                        <div className="p-area-name">{donor.area}</div>
-                        <div className="p-district-name">
-                          <FaMapMarkerAlt className="p-pin" /> {donor.district}
-                        </div>
-                      </div>
-                    </td>
-
-                    {/* Donations & Demographics */}
-                    <td className="td-donations">
-                      <div className="p-donations-cell">
-                        <strong className="p-donation-count">{donor.totalDonations} Times</strong>
-                        <span className="p-demographics">{donor.age} yrs · {donor.gender}</span>
+                      <div className="p-location-simple">
+                        <div className="p-area-simple">{donor.area}</div>
+                        <div className="p-district-simple">{donor.district}</div>
                       </div>
                     </td>
 
                     {/* Availability */}
                     <td className="td-status">
-                      <span className="p-status-pill">
-                        <span className="p-green-beacon"></span> Available Today
+                      <span className="p-status-simple">
+                        <span className="p-green-dot"></span> Available Today
                       </span>
                     </td>
 
-                    {/* Direct Actions */}
+                    {/* Direct Action */}
                     <td className="td-actions text-right">
-                      <div className="p-action-group" onClick={(e) => e.stopPropagation()}>
-                        <button
-                          type="button"
-                          className="btn-p-connect"
-                          onClick={() => setActiveDonor(donor)}
-                          title="View Profile & Request Assistance"
-                        >
-                          <FaHeart className="btn-icon" /> Connect
-                        </button>
-
-                        <a
-                          href={`https://api.whatsapp.com/send?phone=${donor.whatsapp}&text=${encodeURIComponent(
-                            `Hello ${donor.name}, I found your verified donor profile on Ziv Foundation for blood group ${donor.bloodGroup}. We urgently need voluntary blood assistance. Could you please let us know if you are available?`
-                          )}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-p-whatsapp"
-                          title="Chat on WhatsApp"
-                        >
-                          <FaWhatsapp />
-                        </a>
-
-                        <a
-                          href={`tel:${donor.phone}`}
-                          className="btn-p-call"
-                          title={`Call ${donor.name}`}
-                        >
-                          <FaPhoneAlt />
-                        </a>
-                      </div>
+                      <button
+                        type="button"
+                        className="btn-p-connect-simple"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveDonor(donor);
+                        }}
+                        title="View Profile & Contact"
+                      >
+                        Connect
+                      </button>
                     </td>
                   </tr>
                 ))}
 
                 {paginatedDonors.length === 0 && (
                   <tr>
-                    <td colSpan={6} className="p-empty-cell">
+                    <td colSpan={5} className="p-empty-cell">
                       <div className="p-empty-content">
                         <h3>No Donors Found</h3>
                         <p>No verified voluntary donors match your current search and filter settings.</p>
@@ -670,59 +628,125 @@ const PublicBloodBanks = () => {
               </tbody>
             </table>
           </div>
+        </div>
 
-          {/* Table Bottom Pagination Bar */}
-          {totalItems > 0 && (
-            <div className="p-pagination-bar">
-              <div className="p-pagination-info">
-                Page <strong>{currentPage}</strong> of <strong>{totalPages}</strong> (Total <strong>{totalItems}</strong> donors)
-              </div>
-
-              <div className="p-pagination-nav">
-                <button
-                  type="button"
-                  className="p-page-btn arrow"
-                  disabled={currentPage === 1}
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  aria-label="Previous Page"
-                >
-                  <FaChevronLeft /> Prev
-                </button>
-
-                <div className="p-page-numbers-track">
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                    <button
-                      key={page}
-                      type="button"
-                      className={`p-page-num ${currentPage === page ? 'active' : ''}`}
-                      onClick={() => handlePageChange(page)}
-                    >
-                      {page}
-                    </button>
-                  ))}
+        {/* Mobile Responsive Cards View */}
+        <div className="p-mobile-cards-view">
+          {paginatedDonors.map((donor) => (
+            <div
+              key={donor.id}
+              className="p-mobile-donor-card"
+              onClick={() => setActiveDonor(donor)}
+            >
+              <div className="p-m-card-header">
+                <div>
+                  <div className="p-donor-name-row">
+                    <span className="p-donor-name">{donor.name}</span>
+                    <FaCheckCircle className="p-check-icon" />
+                  </div>
+                  <span className="p-donor-subtext">{donor.age} yrs · {donor.gender} · {donor.totalDonations} donations</span>
                 </div>
 
+                <span className="p-blood-text-simple">{donor.bloodGroup}</span>
+              </div>
+
+              <div className="p-m-card-body">
+                <div className="p-m-detail-item">
+                  <span>{donor.area}, {donor.district}</span>
+                </div>
+                <div className="p-m-detail-item">
+                  <span className="p-status-simple">
+                    <span className="p-green-dot"></span> Available Today
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-m-card-footer">
                 <button
                   type="button"
-                  className="p-page-btn arrow"
-                  disabled={currentPage === totalPages}
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  aria-label="Next Page"
+                  className="btn-p-connect-simple w-full"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveDonor(donor);
+                  }}
                 >
-                  Next <FaChevronRight />
+                  Connect
+                </button>
+              </div>
+            </div>
+          ))}
+
+          {paginatedDonors.length === 0 && (
+            <div className="p-empty-cell p-4">
+              <div className="p-empty-content">
+                <h3>No Donors Found</h3>
+                <p>No verified voluntary donors match your current search and filter settings.</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearch('');
+                    setDistrict('All Districts');
+                    setSelectedGroup('All');
+                  }}
+                  className="btn-p-reset"
+                >
+                  Reset Filters
                 </button>
               </div>
             </div>
           )}
         </div>
 
+        {/* Table Bottom Pagination Bar */}
+        {totalItems > 0 && (
+          <div className="p-pagination-bar">
+            <div className="p-pagination-info">
+              Page <strong>{currentPage}</strong> of <strong>{totalPages}</strong> (Total <strong>{totalItems}</strong> donors)
+            </div>
+
+            <div className="p-pagination-nav">
+              <button
+                type="button"
+                className="p-page-btn arrow"
+                disabled={currentPage === 1}
+                onClick={() => handlePageChange(currentPage - 1)}
+                aria-label="Previous Page"
+              >
+                <FaChevronLeft /> Prev
+              </button>
+
+              <div className="p-page-numbers-track">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    type="button"
+                    className={`p-page-num ${currentPage === page ? 'active' : ''}`}
+                    onClick={() => handlePageChange(page)}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                className="p-page-btn arrow"
+                disabled={currentPage === totalPages}
+                onClick={() => handlePageChange(currentPage + 1)}
+                aria-label="Next Page"
+              >
+                Next <FaChevronRight />
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* 3. Connect & Profile Modal */}
       {activeDonor && (
         <div className="p-modal-overlay" onClick={() => setActiveDonor(null)}>
           <div className="p-modal-dialog" onClick={(e) => e.stopPropagation()}>
-            
+
             {/* Close Button */}
             <button
               type="button"
@@ -757,7 +781,7 @@ const PublicBloodBanks = () => {
 
             {/* Modal Body */}
             <div className="p-modal-body">
-              
+
               <div className="p-modal-info-box">
                 <div className="p-modal-info-row">
                   <FaMapMarkerAlt className="p-m-icon" />

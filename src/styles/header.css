@@ -121,10 +121,14 @@
   align-items: center;
   gap: 1.25rem;
   flex-shrink: 0;
+  height: 100%;
 }
 
 .practo-dropdown-item {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
 }
 
 .practo-dropdown-btn {
@@ -134,78 +138,91 @@
   background: transparent;
   border: none;
   font-size: 14px;
-  font-weight: 600;
-  color: #475569;
+  font-weight: 500;
+  color: #414146;
   cursor: pointer;
-  padding: 8px 4px;
+  padding: 0 6px;
+  height: 100%;
+  border-radius: 0;
   font-family: inherit;
-  transition: color 0.18s ease;
+  transition: color 0.15s ease;
 }
 
-.practo-dropdown-btn:hover {
-  color: #0f172a;
-}
-
-.practo-new-badge {
-  background: #1e1b4b;
-  color: #ffffff;
-  font-size: 9.5px;
-  font-weight: 800;
-  padding: 2px 5px;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  line-height: 1.2;
+.practo-dropdown-btn:hover,
+.practo-dropdown-item.open .practo-dropdown-btn {
+  color: #1e293b;
 }
 
 .practo-caret {
-  color: #94a3b8;
-  transition: transform 0.2s ease;
+  color: #787887;
+  transition: transform 0.2s ease, color 0.15s ease;
 }
 
 .practo-dropdown-item.open .practo-caret,
 .practo-dropdown-item:hover .practo-caret {
   transform: rotate(180deg);
+  color: #1e293b;
 }
 
-/* Dropdown Menu */
+/* ============================================================
+   Practo Clean Simple Dropdown Menu
+   Flush with navbar bottom, 0 top gap, subtle border, smooth hover
+   ============================================================ */
+
 .practo-dropdown-menu {
   position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
   background: #ffffff;
-  min-width: 210px;
-  border-radius: 8px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e0e0e4;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 6px 0;
+  margin: 0;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(6px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-  z-index: 1001;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  z-index: 1002;
 }
 
+/* Open State */
 .practo-dropdown-item.open .practo-dropdown-menu,
 .practo-dropdown-item:hover .practo-dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
 }
 
-.practo-menu-link {
-  display: block;
-  padding: 8px 16px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #1e293b;
+.practo-dropdown-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #414146;
   text-decoration: none;
-  transition: all 0.15s ease;
+  background: transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
 }
 
-.practo-menu-link:hover {
-  background: #fff1f2;
-  color: #b91c1c;
+.practo-dropdown-link:hover {
+  background: #f0f0f5;
+  color: #1e293b;
+}
+
+/* Small Practo-like pill badge */
+.practo-menu-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #ff7800;
+  padding: 1.5px 5px;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
 }
 
 /* Login / Signup Button */
@@ -303,32 +320,67 @@
   }
 
   .practo-mobile-drawer {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: fixed;
-    top: 60px;
+    top: 0;
     left: 0;
-    right: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    bottom: 0;
+    width: 85vw;
+    max-width: 320px;
+    height: 100vh;
+    height: 100dvh;
     background: #ffffff;
-    opacity: 0;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
-    border-radius: 0 0 18px 18px;
-    z-index: 10001;
+    z-index: 100002;
+    transform: translateX(-100%);
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+    border-radius: 0;
   }
 
   .practo-mobile-drawer.open {
-    max-height: calc(100vh - 75px);
-    opacity: 1;
-    overflow-y: auto;
+    transform: translateX(0);
+  }
+
+  /* Drawer Top Header */
+  .practo-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #f1f5f9;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .practo-drawer-close {
+    background: #f1f5f9;
+    border: none;
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+
+  .practo-drawer-close:hover {
+    background: #fee2e2;
+    color: #b91c1c;
   }
 
   .practo-drawer-content {
-    padding: 1.25rem 1.25rem 1.75rem 1.25rem;
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    flex: 1;
   }
 
   /* Mobile Emergency Banner */
@@ -338,7 +390,7 @@
     gap: 12px;
     padding: 12px 14px;
     background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
-    border-radius: 12px;
+    border-radius: 10px;
     color: #ffffff;
     text-decoration: none;
     box-shadow: 0 4px 14px rgba(185, 28, 28, 0.25);
@@ -395,7 +447,7 @@
     color: #1e293b;
     text-decoration: none;
     font-size: 14.5px;
-    border-radius: 10px;
+    border-radius: 8px;
     transition: all 0.18s ease;
   }
 
@@ -406,12 +458,14 @@
   }
 
   .practo-mobile-link:hover,
+  .practo-mobile-link:active,
   .practo-mobile-link.active {
-    background: #fff1f2;
+    background: #fef2f2;
     color: #b91c1c;
   }
 
   .practo-mobile-link:hover .m-link-icon,
+  .practo-mobile-link:active .m-link-icon,
   .practo-mobile-link.active .m-link-icon {
     color: #b91c1c;
   }
@@ -436,11 +490,12 @@
     cursor: pointer;
     font-family: inherit;
     border-radius: 8px;
-    transition: background 0.18s ease;
+    transition: background 0.18s ease, color 0.18s ease;
   }
 
   .practo-acc-trigger:hover {
     background: #f8fafc;
+    color: #b91c1c;
   }
 
   .acc-title-wrap {
@@ -475,8 +530,8 @@
 
   /* Auth Button */
   .practo-mobile-auth-wrapper {
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
+    margin-top: auto;
+    padding-top: 1rem;
     border-top: 1px solid #f1f5f9;
   }
 
@@ -488,18 +543,34 @@
     padding: 0.85rem;
     background: #b91c1c;
     color: #ffffff !important;
-    border-radius: 10px;
+    border-radius: 8px;
     font-weight: 800;
     font-size: 14.5px;
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(185, 28, 28, 0.25);
     transition: all 0.2s ease;
   }
 
   .practo-mobile-auth-btn:hover {
     background: #991b1b;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(185, 28, 28, 0.35);
+  }
+
+  /* Backdrop for closing mobile drawer */
+  .practo-mobile-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 100001;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .practo-mobile-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
-

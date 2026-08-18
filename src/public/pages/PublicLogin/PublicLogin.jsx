@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import {
   FaCheckCircle,
   FaRedo,
@@ -8,7 +7,7 @@ import {
 } from 'react-icons/fa';
 import indiaFlag from '../../../assets/icons/india.png';
 import logoZf from '../../../assets/logo.png';
-import loginBg from '../../../assets/bg/login_bg.png';
+import loginBg from '../../../assets/bg/login-bg.jpg';
 import './PublicLogin.css';
 
 const MOCK_REGISTERED_PHONES = {
@@ -104,14 +103,14 @@ const PublicLogin = () => {
     <div
       className="nem-login-page"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(10, 17, 30, 0.88) 0%, rgba(15, 23, 42, 0.82) 50%, rgba(10, 17, 30, 0.92) 100%), url(${loginBg})`
+        backgroundImage: `linear-gradient(135deg, rgb(215 128 128 / 88%) 0%, rgb(76 67 67 / 82%) 50%, rgba(10, 17, 30, 0.92) 100%), url(${loginBg})`
       }}
     >
       <div className="nem-glow-effect"></div>
 
       <div className="nem-login-wrapper">
         <div className="nem-login-card animate-fade">
-          
+
           {/* 1. Header Branding */}
           <div className="nem-brand-header">
             <div className="nem-brand-logo-row">

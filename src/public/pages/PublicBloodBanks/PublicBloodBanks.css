@@ -47,7 +47,7 @@
 
 .p-main-title {
   font-size: clamp(28px, 3.2vw, 38px);
-  font-weight: 800;
+  font-weight: 500;
   color: var(--heading-color, #2d2d32);
   margin: 0 0 0.5rem 0;
   letter-spacing: -0.025em;
@@ -77,13 +77,12 @@
 .p-search-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 1rem;
+  gap: 12px;
 }
 
 .p-input-box {
   position: relative;
-  flex: 1.5;
+  flex: 2;
   display: flex;
   align-items: center;
   background: #f8fafc;
@@ -127,8 +126,9 @@
   align-items: center;
 }
 
-.p-district-box {
+.p-filter-select-box {
   flex: 1;
+  min-width: 170px;
   display: flex;
   align-items: center;
   background: #f8fafc;
@@ -138,14 +138,15 @@
   transition: all 0.18s ease;
 }
 
-.p-district-box:focus-within {
+.p-filter-select-box:focus-within {
   border-color: #b91c1c;
   background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.08);
 }
 
-.p-loc-icon {
+.p-filter-select-icon {
   color: #b91c1c;
-  font-size: 14px;
+  font-size: 13px;
   margin-right: 8px;
   flex-shrink: 0;
 }
@@ -161,56 +162,6 @@
   outline: none;
   cursor: pointer;
   font-family: inherit;
-}
-
-/* Blood Group Filter Row */
-.p-blood-filter-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-top: 0.75rem;
-  border-top: 1px solid #f1f5f9;
-}
-
-.p-filter-label {
-  font-size: 12px;
-  font-weight: 700;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-
-.p-pills-wrap {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.p-blood-pill {
-  padding: 4px 11px;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #475569;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  font-family: inherit;
-}
-
-.p-blood-pill:hover {
-  background: #fee2e2;
-  color: #b91c1c;
-  border-color: #fecdd3;
-}
-
-.p-blood-pill.active {
-  background: #b91c1c;
-  color: #ffffff;
-  border-color: #b91c1c;
 }
 
 /* 2. Main Table Layout */
@@ -337,29 +288,8 @@
   vertical-align: middle;
 }
 
-/* Donor Profile Cell */
-.p-donor-profile-cell {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.p-avatar-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #fee2e2;
-  color: #991b1b;
-  font-size: 13.5px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1.5px solid #fecdd3;
-}
-
-.p-donor-meta {
+/* Donor Profile Simple Cell */
+.p-donor-simple-info {
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -373,9 +303,15 @@
 
 .p-donor-name {
   font-size: 14.5px;
-  font-weight: 800;
+  font-weight: 700;
   color: #0f172a;
   line-height: 1.25;
+}
+
+.p-donor-subtext {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
 }
 
 .p-check-icon {
@@ -383,208 +319,76 @@
   font-size: 13px;
 }
 
-.p-honor-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 10.5px;
-  font-weight: 800;
-  padding: 1.5px 6px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  align-self: flex-start;
-}
-
-.p-honor-tag .p-honor-icon {
-  font-size: 9px;
-}
-
-.p-honor-tag.gold {
-  background: #fef3c7;
-  color: #92400e;
-  border: 1px solid #fde68a;
-}
-
-.p-honor-tag.champion {
-  background: #fef3c7;
-  color: #92400e;
-  border: 1px solid #fde68a;
-}
-
-.p-honor-tag.star {
-  background: #ede9fe;
-  color: #5b21b6;
-  border: 1px solid #ddd6fe;
-}
-
-.p-honor-tag.rare {
-  background: #fee2e2;
-  color: #991b1b;
-  border: 1px solid #fecdd3;
-}
-
-.p-honor-tag.regular {
-  background: #f1f5f9;
+/* Blood Group - Clean Typography (Non-bold, No background, No border outline) */
+.p-blood-text-simple {
+  font-size: 14px;
+  font-weight: 500;
   color: #334155;
-  border: 1px solid #e2e8f0;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
-/* Blood Group Cell */
-.p-blood-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: #fee2e2;
-  color: #991b1b;
-  border: 1.5px solid #fecdd3;
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 13.5px;
-  font-weight: 900;
-  letter-spacing: 0.02em;
-}
-
-.p-tint {
-  font-size: 11px;
-}
-
-/* Location Cell */
-.p-location-cell {
+/* Location Simple */
+.p-location-simple {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.p-area-name {
+.p-area-simple {
   font-size: 13.5px;
-  font-weight: 700;
+  font-weight: 600;
   color: #1e293b;
 }
 
-.p-district-name {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+.p-district-simple {
   font-size: 12px;
   color: #64748b;
+  font-weight: 500;
 }
 
-.p-district-name .p-pin {
-  color: #b91c1c;
-  font-size: 11px;
-}
-
-/* Donations Cell */
-.p-donations-cell {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.p-donation-count {
-  font-size: 13.5px;
-  font-weight: 800;
-  color: #0f172a;
-}
-
-.p-demographics {
-  font-size: 11.5px;
-  color: #64748b;
-  font-weight: 600;
-}
-
-/* Status Pill */
-.p-status-pill {
+/* Availability Simple */
+.p-status-simple {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 11.5px;
-  font-weight: 700;
-  color: #047857;
-  background: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  padding: 3px 9px;
-  border-radius: 20px;
-  white-space: nowrap;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
-.p-green-beacon {
-  width: 6px;
-  height: 6px;
+.p-green-dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #10b981;
+  display: inline-block;
 }
 
-/* Actions Group */
-.p-action-group {
+/* Simple Action Button */
+.btn-p-connect-simple {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-}
-
-.btn-p-connect {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 14px;
+  justify-content: center;
+  padding: 6px 16px;
   background: #b91c1c;
   color: #ffffff;
   border: none;
   border-radius: 6px;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.18s ease;
   font-family: inherit;
-  white-space: nowrap;
 }
 
-.btn-p-connect:hover {
+.btn-p-connect-simple:hover {
   background: #991b1b;
-}
-
-.btn-p-connect .btn-icon {
-  font-size: 10px;
-}
-
-.btn-p-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: #25d366;
-  color: #ffffff;
-  border-radius: 6px;
-  font-size: 14px;
-  text-decoration: none;
-  transition: background 0.18s ease;
-}
-
-.btn-p-whatsapp:hover {
-  background: #1eb857;
-}
-
-.btn-p-call {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: #f8fafc;
-  color: #1e293b;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 6px;
-  font-size: 12px;
-  text-decoration: none;
-  transition: all 0.18s ease;
-}
-
-.btn-p-call:hover {
-  border-color: #b91c1c;
-  color: #b91c1c;
-  background: #fff1f2;
 }
 
 /* Empty State */
@@ -879,14 +683,14 @@
 }
 
 .p-modal-bio {
-  font-size: 13px;
+  font-size: 13.5px;
   color: #475569;
   font-style: italic;
   margin: 0;
   background: #f8fafc;
   padding: 10px 14px;
-  border-left: 3px solid #b91c1c;
-  border-radius: 0 8px 8px 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
 }
 
 .p-modal-safety-banner {
@@ -953,11 +757,79 @@
   transition: background 0.18s ease;
 }
 
-.btn-p-modal-phone:hover {
-  background: #991b1b;
+/* Responsive Layouts */
+.p-mobile-cards-view {
+  display: none;
+}
+
+.desktop-table-view {
+  display: block;
 }
 
 @media (max-width: 768px) {
+  .desktop-table-view {
+    display: none;
+  }
+
+  .p-mobile-cards-view {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .p-mobile-donor-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    transition: border-color 0.18s ease;
+  }
+
+  .p-mobile-donor-card:hover {
+    border-color: #cbd5e1;
+  }
+
+  .p-m-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .p-m-donor-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .p-m-card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13px;
+    color: #475569;
+  }
+
+  .p-m-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .p-m-card-footer .btn-p-connect-simple {
+    width: 100%;
+    padding: 10px;
+    font-size: 13.5px;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
   .p-search-row {
     flex-direction: column;
   }
@@ -965,11 +837,18 @@
   .p-table-top-bar {
     flex-direction: column;
     align-items: flex-start;
+    gap: 12px;
+  }
+
+  .p-top-right {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .p-pagination-bar {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 12px;
   }
 }

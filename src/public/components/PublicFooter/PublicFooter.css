@@ -1,237 +1,206 @@
 /* ============================================================
-   Modern Dark CTA Banner & Minimalist White Footer Styles
-   (Matches Reference Design Exact Structure)
+   Neotia Bhagirathi Hospital Style 4-Column Clean Footer
    ============================================================ */
 
-.std-full-footer-wrapper {
+.neotia-footer-wrapper {
   width: 100%;
+  background: #ffdcd5;
+  border-top: none !important;
   font-family: 'Source Sans 3', -apple-system, sans-serif;
   box-sizing: border-box;
+  color: #334155;
 }
 
-/* ============================================================
-   1. WARM LIGHT CTA SECTION (#f8e9e6)
-   ============================================================ */
-.std-cta-light-section {
-  position: relative;
-  background: #f8e9e6;
-  padding: 4.5rem 1.5rem 5rem 1.5rem;
-  text-align: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.std-cta-inner-container {
-  max-width: 780px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.std-cta-headline {
-  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
-  font-weight: 600;
-  color: #1e293b;
-  margin: 0 0 1rem 0;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-}
-
-.std-cta-description {
-  font-size: 15.5px;
-  font-weight: 400;
-  color: #64748b;
-  line-height: 1.65;
-  margin: 0 0 2rem 0;
-  max-width: 620px;
-}
-
-.std-cta-btn-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
-/* Action Button */
-.std-cta-action-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #b91c1c;
-  color: #ffffff !important;
-  padding: 12px 30px;
-  border-radius: 99px;
-  font-size: 14.5px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.18s ease;
-  letter-spacing: 0.01em;
-}
-
-.std-cta-action-btn:hover {
-  background: #991b1b;
-}
-
-.btn-heart-icon {
-  font-size: 13px;
-}
-
-/* ============================================================
-   2. MINIMALIST WHITE FOOTER SECTION
-   ============================================================ */
-.std-white-footer-section {
-  background: #ffffff;
-  padding: 4.5rem 0 2.5rem 0;
-  color: #475569;
-}
-
-.std-footer-container {
+.neotia-footer-container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 4.5rem 2rem 3.5rem 2rem;
   display: grid;
-  grid-template-columns: 1.8fr 1.2fr 1.2fr 1.5fr;
+  grid-template-columns: 1.7fr 1.15fr 1.15fr 1fr;
   gap: 3.5rem;
   align-items: start;
 }
 
-@media (max-width: 900px) {
-  .std-footer-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .std-footer-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1.25rem;
-  }
-}
-
-/* Brand Column */
-.std-f-brand-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  text-decoration: none;
-}
-
-.std-f-logo-img {
-  height: 36px;
-  width: auto;
-  object-fit: contain;
-}
-
-.std-f-brand-name {
-  font-size: 1.45rem;
-  font-weight: 900;
-  color: #0f172a;
-  letter-spacing: -0.03em;
-}
-
-/* Column Headings */
-.std-f-col-title {
-  font-size: 14.5px;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0 0 1.25rem 0;
-  letter-spacing: -0.01em;
-}
-
-/* Links List */
-.std-f-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.neotia-f-col {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
 }
 
-.std-f-links a {
+/* 1. Brand & Contact Column */
+.neotia-f-brand-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.neotia-f-logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.neotia-f-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.neotia-f-legal-unit {
+  font-size: 13px;
   color: #475569;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.neotia-f-address {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0 0 1.15rem 0;
+}
+
+.neotia-f-contact-info {
   font-size: 13.5px;
+  color: #334155;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.neotia-f-contact-info p {
+  margin: 0 0 4px 0;
+}
+
+.neotia-f-contact-info strong {
+  color: #2d2d32;
+  font-weight: 600;
+}
+
+.neotia-f-contact-info a {
+  color: #475569;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.18s ease;
-}
-
-.std-f-links a:hover {
-  color: #0f172a;
-}
-
-/* Contact Column */
-.std-f-direct-link {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: #0f172a;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
   transition: color 0.15s ease;
 }
 
-.std-f-direct-link:hover {
-  color: #22c55e;
+.neotia-f-contact-info a:hover {
+  color: #b91c1c;
+  text-decoration: underline;
 }
 
-.std-f-contact-sub {
-  font-size: 13px;
-  color: #64748b;
-  margin: 0 0 0.35rem 0;
-  line-height: 1.5;
-}
-
-/* 3. BOTTOM ROW */
-.std-f-bottom-divider {
-  max-width: 1240px;
-  margin: 3.5rem auto 1.5rem auto;
-  height: 1px;
-  background: #f1f5f9;
-  padding: 0 2rem;
-}
-
-.std-f-bottom-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.std-f-copyright {
-  font-size: 13px;
-  color: #64748b;
-  margin: 0;
-  font-weight: 500;
-}
-
-/* Social Icons */
-.std-f-social-group {
+/* Outlined Social Icon Circles */
+.neotia-f-social-row {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.std-f-social-icon {
-  width: 32px;
-  height: 32px;
+.neotia-social-circle {
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: #f1f5f9;
-  color: #0f172a;
-  display: flex;
+  border: 1.5px solid #cbd5e1;
+  color: #475569;
+  background: #ffffff;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 13.5px;
   text-decoration: none;
-  transition: background-color 0.18s ease, color 0.18s ease;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
 
-.std-f-social-icon:hover {
-  background: #0f172a;
+.neotia-social-circle:hover {
+  background: #b91c1c;
   color: #ffffff;
+  border-color: #b91c1c;
+  transform: none;
+  box-shadow: 0 4px 10px rgba(185, 28, 28, 0.25);
+}
+
+/* 2, 3, 4. Navigation Columns */
+.neotia-f-col-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2d2d32;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.neotia-f-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.neotia-f-nav-list a {
+  color: #475569;
+  font-size: 13.5px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.18s ease;
+  line-height: 1.4;
+  display: inline-block;
+}
+
+.neotia-f-nav-list a:hover {
+  color: #b91c1c;
+  transform: none;
+  text-decoration: underline;
+}
+
+/* Bottom Bar */
+.neotia-f-bottom-bar {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 1.4rem 0;
+}
+
+.neotia-f-bottom-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.neotia-f-copyright-text {
+  font-size: 12.5px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.neotia-f-legal-link {
+  color: #475569;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.neotia-f-legal-link:hover {
+  color: #b91c1c;
+  text-decoration: underline;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .neotia-footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .neotia-footer-container {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    padding: 3rem 1.25rem 2.5rem 1.25rem;
+  }
+
+  .neotia-f-bottom-container {
+    padding: 0 1.25rem;
+  }
 }

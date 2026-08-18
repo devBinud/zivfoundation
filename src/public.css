@@ -62,10 +62,12 @@ input:-webkit-autofill:focus {
 :root {
   --heading-color: #2d2d32;
   --text-heading: #2d2d32;
+  --heading-weight: 500;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--heading-color);
+  color: var(--heading-color, #2d2d32);
+  font-weight: 500;
 }
 
 /* ============================================================
